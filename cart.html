@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1240">
+<title>购物车 - 淘宝网</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+
+<div id="site-head"></div>
+
+<main class="container">
+
+  <!-- 步骤条 -->
+  <div class="steps">
+    <div class="step on"><span class="no">1</span>我的购物车</div>
+    <span class="line"></span>
+    <div class="step"><span class="no">2</span>确认订单</div>
+    <span class="line"></span>
+    <div class="step"><span class="no">3</span>付款</div>
+  </div>
+
+  <!-- 购物车主体 -->
+  <div id="cartMain">
+
+    <div class="cart-panel">
+      <div class="cart-head">
+        <div class="c-check"></div>
+        <div class="c-info">商品信息</div>
+        <div class="c-price">单价</div>
+        <div class="c-qty">数量</div>
+        <div class="c-sum">小计</div>
+        <div class="c-act">操作</div>
+      </div>
+      <div id="cartRows"></div>
+    </div>
+
+    <!-- 吸底结算条 -->
+    <div class="cart-bar">
+      <div class="left">
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer">
+          <input type="checkbox" class="ck" id="checkAll">
+          <span>全选</span>
+        </label>
+        <a href="javascript:;" id="btnClear">清空购物车</a>
+        <a href="javascript:;">删除选中</a>
+        <a href="javascript:;">移入收藏夹</a>
+      </div>
+      <div class="right">
+        <span class="sum-txt">已选 <b id="sumQty" style="color:#ff5000">0</b> 件,合计:</span>
+        <span class="price" id="sumPrice"></span>
+        <button class="btn btn-primary btn-checkout" id="btnCheckout">去结算</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 空购物车 -->
+  <div id="cartEmpty" class="hide">
+    <div class="empty">
+      <div class="ico">🛒</div>
+      <p>购物车还是空的,快去挑点好东西吧</p>
+      <a class="btn btn-primary" href="index.html">去逛逛</a>
+    </div>
+  </div>
+
+  <!-- 猜你喜欢 -->
+  <div class="cart-like">
+    <div class="like-head"><span>猜你喜欢</span></div>
+    <div class="goods-grid" id="likeGrid"></div>
+  </div>
+
+</main>
+
+<div id="site-foot"></div>
+
+<script src="js/open-products.js"></script>
+<script src="js/products10k-products.js"></script>
+<script src="js/shopify-products.js"></script>
+<script src="js/rpc-products.js"></script>
+<script src="js/stanford-products.js"></script>
+<script src="js/tari-products.js"></script>
+<script src="js/products10k-full-products.js"></script>
+<script src="js/rp2k-products.js"></script>
+<script src="js/grocery-products.js"></script>
+<script src="js/fsl-products.js"></script>
+<script src="js/deepfashion-products.js"></script>
+<script src="js/abo-products.js"></script>
+<script src="js/taobao-logistics-products.js"></script>
+<script src="js/industrybench-products.js"></script>
+<script src="js/mm-bench-products.js"></script>
+<script src="js/mm-bench-exact-products.js"></script>
+<script src="js/detail-products.js"></script>
+<script src="js/taxonomy-products.js"></script>
+<script src="js/data.js"></script>
+<script src="js/common.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>

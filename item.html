@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1240">
+<title>商品详情 - 淘宝网</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/item.css">
+</head>
+<body>
+
+<div id="site-head"></div>
+
+<main class="container">
+
+  <div class="crumb">
+    <a href="index.html">首页</a>
+    <span class="sep">›</span>
+    <a href="javascript:;" id="crumbCat">全部分类</a>
+    <span class="sep">›</span>
+    <span class="cur" id="crumbTitle">商品详情</span>
+  </div>
+
+  <!-- 主图 | 信息 | 店铺卡 -->
+  <div class="item-wrap">
+    <section class="gallery">
+      <div class="gallery-main" id="galleryMain"></div>
+      <div class="gallery-thumbs" id="galleryThumbs"></div>
+      <div class="gallery-actions">
+        <span id="actFav">☆ 收藏商品</span>
+        <span id="actShare">↗ 分享</span>
+        <span onclick="toast('举报已提交')">⚑ 举报</span>
+      </div>
+    </section>
+
+    <section class="info" id="itemInfo"></section>
+
+    <aside class="shop-card" id="shopCard"></aside>
+  </div>
+
+  <!-- Tab:详情 / 评价 / 参数 -->
+  <div class="detail-tabs">
+    <div class="bar" id="tabBar"></div>
+    <div class="pane on" data-key="desc"   id="paneDesc"></div>
+    <div class="pane"    data-key="rate"   id="paneRate"   style="padding:20px 22px"></div>
+    <div class="pane"    data-key="param"  id="paneParam"></div>
+  </div>
+
+  <!-- 底部推荐 -->
+  <div class="like-head"><span>猜你喜欢</span></div>
+  <div class="goods-grid" id="likeGrid" style="grid-template-columns:repeat(5,1fr)"></div>
+
+</main>
+
+<div id="site-foot"></div>
+
+<script src="js/open-products.js"></script>
+<script src="js/products10k-products.js"></script>
+<script src="js/shopify-products.js"></script>
+<script src="js/rpc-products.js"></script>
+<script src="js/stanford-products.js"></script>
+<script src="js/tari-products.js"></script>
+<script src="js/products10k-full-products.js"></script>
+<script src="js/rp2k-products.js"></script>
+<script src="js/grocery-products.js"></script>
+<script src="js/fsl-products.js"></script>
+<script src="js/deepfashion-products.js"></script>
+<script src="js/abo-products.js"></script>
+<script src="js/taobao-logistics-products.js"></script>
+<script src="js/industrybench-products.js"></script>
+<script src="js/mm-bench-products.js"></script>
+<script src="js/mm-bench-exact-products.js"></script>
+<script src="js/detail-products.js"></script>
+<script src="js/taxonomy-products.js"></script>
+<script src="js/data.js"></script>
+<script src="js/common.js"></script>
+<script src="js/item.js"></script>
+<script>
+  /* 面包屑回填(依赖 item.js 里解析好的 product) */
+  (function () {
+    var cat = document.getElementById('crumbCat');
+    var ttl = document.getElementById('crumbTitle');
+    if (!cat || typeof product === 'undefined') return;
+    cat.textContent = product.cat;
+    cat.href = 'search.html?cat=' + encodeURIComponent(product.cat);
+    ttl.textContent = product.title.length > 26
+      ? product.title.slice(0, 26) + '…'
+      : product.title;
+  })();
+</script>
+</body>
+</html>

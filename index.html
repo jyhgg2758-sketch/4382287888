@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>淘宝网 - 淘！我喜欢</title>
+<meta name="description" content="淘宝 PC 首页静态学习复刻">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/home.css">
+</head>
+<body class="tb-home" id="top">
+
+<header class="tb-topbar">
+  <div class="tb-layout topbar-inner">
+    <nav class="topbar-left" aria-label="地区与账户">
+      <button class="plain-link region">中国大陆 <span>⌄</span></button>
+      <a class="orange-link" href="#login">亲，请登录</a>
+      <a href="#register">免费注册</a>
+      <a href="#accessibility">网页无障碍</a>
+    </nav>
+    <nav class="topbar-right" aria-label="用户导航">
+      <a href="#my">我的淘宝 <span>⌄</span></a>
+      <a href="cart.html"><i class="cart-ico">🛒</i> 购物车 <b id="topCartCount">0</b></a>
+      <a href="#favorite">收藏夹 <span>⌄</span></a>
+      <i class="top-sep"></i>
+      <a href="#seller">开店</a>
+      <a href="#service">千牛卖家中心 <span>⌄</span></a>
+      <a href="#contact">联系客服 <span>⌄</span></a>
+    </nav>
+  </div>
+</header>
+
+<div class="tb-layout search-header">
+  <a class="season-banner" href="#feedGrid"><b>家装节</b><span>热卖中！爆款叠国补低至6折</span><em>立即抢购</em></a>
+  <a class="taobao-logo" href="index.html" aria-label="淘宝网首页">
+    <span class="logo-cn">淘宝</span>
+    <span class="logo-en">Taobao.com</span>
+  </a>
+  <div class="search-area">
+    <form class="home-search" id="homeSearchForm">
+      <button type="button" class="search-kind">宝贝 <span>⌄</span></button>
+      <input id="homeSearchInput" type="search" autocomplete="off" placeholder="可粘贴宝贝标题，搜你想要的好物">
+      <button class="camera-btn" type="button" title="图片搜索">▣</button>
+      <button class="search-submit" type="submit">搜索</button>
+    </form>
+    <div class="hot-words" id="hotWords"></div>
+  </div>
+  <button class="qr-entry" type="button"><span class="qr-mini">▦</span><span>手机逛淘宝</span></button>
+</div>
+
+<nav class="tb-layout channel-nav" aria-label="频道导航">
+  <a class="tmall" href="#tmall">▰ 天猫</a>
+  <a class="live" href="#live">▣ 淘宝直播</a>
+  <a href="#business">♟ 阿里企业购</a>
+  <a href="#auction">◈ 司法拍卖</a>
+  <a class="market" href="#market">▰ 天猫超市</a>
+  <a href="#subsidy">▣ 国家补贴</a>
+  <a href="#coupon">▤ 领券中心</a>
+  <a href="#season">✿ 中秋团圆季</a>
+  <a href="search.html">▦ 全部频道</a>
+</nav>
+
+<main class="tb-layout home-main">
+  <section class="hero-grid" aria-label="首页主推荐区">
+    <aside class="category-card">
+      <h2>分类</h2>
+      <ul id="homeCategories"></ul>
+    </aside>
+
+    <section class="spotlight" id="spotlight" aria-label="焦点活动">
+      <div class="spotlight-top">
+        <div class="spotlight-stage">
+          <img id="spotlightImage" alt="淘宝焦点活动">
+          <div class="spotlight-copy">
+            <span id="spotlightEyebrow">淘宝精选</span>
+            <strong id="spotlightTitle"></strong>
+            <p id="spotlightSubtitle"></p>
+            <a href="#feedGrid">立即抢购 <b>›</b></a>
+          </div>
+          <button class="spot-arrow prev" id="spotPrev" aria-label="上一张">‹</button>
+          <button class="spot-arrow next" id="spotNext" aria-label="下一张">›</button>
+          <div class="spot-dots" id="spotDots"></div>
+        </div>
+        <a class="subsidy-panel" id="heroSubsidy" href="#feedGrid"></a>
+      </div>
+      <div class="spot-shortcuts" id="spotShortcuts"></div>
+    </section>
+
+    <aside class="user-card" id="login">
+      <div class="user-profile">
+        <div class="avatar">淘</div>
+        <p>Hi！你好</p>
+        <span>登录淘宝后更多精彩</span>
+      </div>
+      <div class="login-actions">
+        <button class="primary">登录</button>
+        <button>注册</button>
+        <button>开店</button>
+      </div>
+      <div class="user-tools">
+        <a href="#favorite"><i>☆</i><span>宝贝收藏</span></a>
+        <a href="#bought"><i>▤</i><span>买过的店</span></a>
+        <a href="#shops"><i>♡</i><span>收藏的店</span></a>
+        <a href="#history"><i>◷</i><span>我的足迹</span></a>
+      </div>
+      <a class="member-banner" href="#member"><b>88VIP</b><span>好货好价，畅享会员权益</span><em>去看看 ›</em></a>
+    </aside>
+  </section>
+
+  <section class="feed-section">
+    <div class="feed-tabs" id="feedTabs">
+      <button class="active" data-cat="">猜你喜欢</button>
+      <button data-cat="运动">运动户外</button>
+      <button data-cat="食品">馋嘴零食</button>
+      <button data-cat="数码">潮电数码</button>
+      <button data-cat="服饰">服饰时尚</button>
+      <button data-cat="家居">家装建材</button>
+      <button data-cat="文具">办公文具</button>
+      <button data-cat="美妆">健康保健</button>
+    </div>
+    <div class="feed-grid" id="feedGrid" aria-live="polite"></div>
+    <button class="feed-more" id="feedMore" type="button">继续逛逛</button>
+  </section>
+
+  <footer class="home-footer">
+    <div class="footer-help">
+      <span><b>消费者保障</b> 七天无理由退换</span>
+      <span><b>新手上路</b> 免费注册与购物指南</span>
+      <span><b>付款方式</b> 支付宝快捷支付</span>
+      <span><b>淘宝特色</b> 淘宝直播与闲鱼集市</span>
+    </div>
+    <p>本页面为个人前端学习作品，与淘宝网及阿里巴巴集团无关。</p>
+  </footer>
+</main>
+
+<nav class="float-tools" aria-label="快捷工具">
+  <a href="#top" id="backTop">⌃<span>顶部</span></a>
+  <a href="cart.html">🛒<span>购物车</span></a>
+  <a href="#service">◌<span>客服</span></a>
+  <a href="#feedback">✎<span>反馈</span></a>
+</nav>
+
+<script src="js/open-products.js"></script>
+<script src="js/products10k-products.js"></script>
+<script src="js/shopify-products.js"></script>
+<script src="js/rpc-products.js"></script>
+<script src="js/stanford-products.js"></script>
+<script src="js/tari-products.js"></script>
+<script src="js/products10k-full-products.js"></script>
+<script src="js/rp2k-products.js"></script>
+<script src="js/grocery-products.js"></script>
+<script src="js/fsl-products.js"></script>
+<script src="js/deepfashion-products.js"></script>
+<script src="js/abo-products.js"></script>
+<script src="js/taobao-logistics-products.js"></script>
+<script src="js/industrybench-products.js"></script>
+<script src="js/mm-bench-products.js"></script>
+<script src="js/mm-bench-exact-products.js"></script>
+<script src="js/detail-products.js"></script>
+<script src="js/taxonomy-products.js"></script>
+<script src="js/data.js"></script>
+<script src="js/home.js"></script>
+</body>
+</html>

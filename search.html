@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1240">
+<title>全部商品 - 淘宝网</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/list.css">
+</head>
+<body>
+
+<div id="pageLoading" class="page-loading show" role="status" aria-live="polite" aria-label="&#21830;&#21697;&#21152;&#36733;&#20013;">
+  <div class="page-loading-card">
+    <span class="page-loading-spinner" aria-hidden="true"></span>
+    <p>&#27491;&#22312;&#21152;&#36733;&#21830;&#21697;&#8230;</p>
+  </div>
+</div>
+
+<div id="site-head"></div>
+
+<main class="container">
+
+  <div class="crumb">
+    <a href="index.html">首页</a>
+    <span class="sep">›</span>
+    <span class="cur" id="pageTitle">全部商品</span>
+  </div>
+
+  <div class="list-wrap">
+
+    <!-- 左侧筛选 -->
+    <aside class="filter">
+      <div class="filter-panel">
+        <h4>商品分类</h4>
+        <div class="body filter-list" id="catFilter"></div>
+      </div>
+
+      <div class="filter-panel">
+        <h4>价格区间</h4>
+        <div class="price-range">
+          <div class="inputs">
+            <input type="text" id="priceMin" placeholder="¥ 最低">
+            <span class="dash">—</span>
+            <input type="text" id="priceMax" placeholder="¥ 最高">
+          </div>
+          <button class="btn btn-ghost" id="priceGo">确定</button>
+        </div>
+        <div class="price-quick">
+          <span data-min="" data-max="50">50 元以下</span>
+          <span data-min="50" data-max="100">50 - 100</span>
+          <span data-min="100" data-max="300">100 - 300</span>
+          <span data-min="300" data-max="">300 元以上</span>
+        </div>
+      </div>
+
+      <div class="filter-panel">
+        <h4>服务保障</h4>
+        <div class="body filter-list">
+          <a href="javascript:;">正品保障</a>
+          <a href="javascript:;">七天无理由退换</a>
+          <a href="javascript:;">极速退款</a>
+          <a href="javascript:;">包邮</a>
+          <a href="javascript:;">花呗分期</a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 右侧主区 -->
+    <div class="list-main">
+
+      <div class="sortbar" id="sortbarWrap">
+        <div class="sorts" id="sortbar"></div>
+        <div class="total">共 <b id="totalCount">0</b> 件商品</div>
+      </div>
+
+      <div class="chosen" id="chosen"></div>
+
+      <div class="list-grid" id="listGrid"></div>
+      <div class="pager" id="pager"></div>
+      <div class="no-result hide" id="noResult"></div>
+    </div>
+
+  </div>
+
+  <!-- 底部推荐 -->
+  <div class="like-head"><span>猜你喜欢</span></div>
+  <div class="goods-grid" id="likeGrid" style="grid-template-columns:repeat(5,1fr)"></div>
+
+</main>
+
+<div id="site-foot"></div>
+
+<script src="js/open-products.js"></script>
+<script src="js/products10k-products.js"></script>
+<script src="js/shopify-products.js"></script>
+<script src="js/rpc-products.js"></script>
+<script src="js/stanford-products.js"></script>
+<script src="js/tari-products.js"></script>
+<script src="js/products10k-full-products.js"></script>
+<script src="js/rp2k-products.js"></script>
+<script src="js/grocery-products.js"></script>
+<script src="js/fsl-products.js"></script>
+<script src="js/deepfashion-products.js"></script>
+<script src="js/abo-products.js"></script>
+<script src="js/taobao-logistics-products.js"></script>
+<script src="js/industrybench-products.js"></script>
+<script src="js/mm-bench-products.js"></script>
+<script src="js/mm-bench-exact-products.js"></script>
+<script src="js/detail-products.js"></script>
+<script src="js/taxonomy-products.js"></script>
+<script src="js/data.js"></script>
+<script src="js/common.js"></script>
+<script src="js/list.js"></script>
+</body>
+</html>

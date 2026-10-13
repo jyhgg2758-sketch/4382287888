@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1240">
+<title>确认订单 - 淘宝网</title>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/cart.css">
+</head>
+<body>
+
+<div id="site-head"></div>
+
+<main class="container" id="checkoutMain">
+
+  <!-- 步骤条 -->
+  <div class="steps">
+    <div class="step"><span class="no">1</span>我的购物车</div>
+    <span class="line"></span>
+    <div class="step on"><span class="no">2</span>确认订单</div>
+    <span class="line"></span>
+    <div class="step"><span class="no">3</span>付款</div>
+  </div>
+
+  <!-- 收货地址 -->
+  <div class="checkout-panel">
+    <h3>收货地址</h3>
+    <div class="addr-list" id="addrList"></div>
+  </div>
+
+  <!-- 支付方式 -->
+  <div class="checkout-panel">
+    <h3>支付方式</h3>
+    <div class="pay-list" id="payList"></div>
+  </div>
+
+  <!-- 商品清单 + 金额 -->
+  <div class="checkout-panel">
+    <h3>订单商品</h3>
+    <div class="order-goods" id="orderGoods"></div>
+    <div style="display:flex;justify-content:flex-end;margin-top:16px">
+      <div class="amount-box" id="amountBox"></div>
+    </div>
+  </div>
+
+  <!-- 备注 -->
+  <div class="checkout-panel">
+    <h3>订单备注</h3>
+    <div class="remark">
+      <textarea maxlength="200"
+        placeholder="选填:对本次交易的说明(如发票抬头、发货时间要求等)"></textarea>
+    </div>
+  </div>
+
+  <!-- 提交栏 -->
+  <div class="submit-bar" id="checkoutFoot">
+    <div class="addr-tip" id="addrTip"></div>
+    <div class="pay-total">应付金额 <span class="price" id="payTotal"></span></div>
+    <button class="btn btn-primary btn-submit" id="btnSubmit">提交订单</button>
+  </div>
+
+</main>
+
+<!-- 空清单 / 下单成功 -->
+<div class="container hide" id="checkoutEmpty"></div>
+<div class="container hide" id="checkoutSuccess"></div>
+
+<div id="site-foot"></div>
+
+<script src="js/open-products.js"></script>
+<script src="js/products10k-products.js"></script>
+<script src="js/shopify-products.js"></script>
+<script src="js/rpc-products.js"></script>
+<script src="js/stanford-products.js"></script>
+<script src="js/tari-products.js"></script>
+<script src="js/products10k-full-products.js"></script>
+<script src="js/rp2k-products.js"></script>
+<script src="js/grocery-products.js"></script>
+<script src="js/fsl-products.js"></script>
+<script src="js/deepfashion-products.js"></script>
+<script src="js/abo-products.js"></script>
+<script src="js/taobao-logistics-products.js"></script>
+<script src="js/industrybench-products.js"></script>
+<script src="js/mm-bench-products.js"></script>
+<script src="js/mm-bench-exact-products.js"></script>
+<script src="js/detail-products.js"></script>
+<script src="js/taxonomy-products.js"></script>
+<script src="js/data.js"></script>
+<script src="js/common.js"></script>
+<script src="js/cart.js"></script>
+</body>
+</html>
