@@ -199,7 +199,7 @@ nav a:hover {
     font-weight: bold;
 }
 
-/* 嵌入式子网页窗口区域 (iframe) */
+/* 嵌入式子网页窗口区域 (iframe) 滚动播出区 */
 .embed-section {
     padding: 40px 5%;
     background: #0d1117;
@@ -211,7 +211,7 @@ nav a:hover {
     padding: 20px;
 }
 .embed-container h3 {
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: #f59e0b;
     font-size: 18px;
 }
@@ -302,11 +302,10 @@ footer { background: #000; padding: 20px; text-align: center; color: #888; font-
 <div class="logo">DAO WEI <span>EXPRESS</span></div>
 <div class="menu" onclick="menuToggle()">☰</div>
 <nav id="nav">
-<a href="http://www.xn--zbssc327di94a.top">首页</a>
-<a href="http://www.xn--zbssc327di94a.top/8888">物流服务</a>
-<a href="http://www.xn--zbssc327di94a.top/service/www.seapoe.com/network/index.html">全球仓库</a>
-<a href="http://www.xn--zbssc327di94a.top/service/www.seapoe.com/network/index.html">物流查询</a>
-<a href="http://www.xn--zbssc327di94a.top/contact.html">联系我们</a>
+<a href="#board">首页</a>
+<a href="#board">物流大屏</a>
+<a href="#embed-box">文件夹HTML轮播</a>
+<a href="#network">全球网络</a>
 </nav>
 </header>
 
@@ -338,24 +337,24 @@ footer { background: #000; padding: 20px; text-align: center; color: #888; font-
             <div>当前状态</div>
         </div>
 
-        <div class="board-rows-container" id="board-rows">
-            <!-- 动态生成 -->
-        </div>
+        <div class="board-rows-container" id="board-rows"></div>
     </div>
 </div>
 
-<!-- ==================== 新增：嵌入式子网页地址区块 ==================== -->
-<div class="embed-section">
+<!-- ==================== 核心：文件夹内所有 HTML 文件滚动播出窗口 ==================== -->
+<div class="embed-section" id="embed-box">
     <div class="embed-container">
-        <h3>🌐 到位速递全球分站与仓库实时嵌入窗口</h3>
-        <p style="color:#888; font-size:13px; margin-bottom:12px;">以下内容通过嵌入式框架加载外部子地址（可按需修改 src 属性指向任意其他网址）：</p>
-        <!-- 您可以在 src 属性里换成您想要显示的另一个地址 -->
-        <iframe src="http://www.xn--zbssc327di94a.top/service/www.seapoe.com/network/index.html" class="embed-frame" title="全球仓储网络子系统"></iframe>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <h3 style="margin:0;">📁 文件夹内所有 HTML 文件轮流滚动播映中</h3>
+            <span id="current-file-indicator" style="font-size: 12px; color: #0ea5e9; font-family: monospace;">正在加载...</span>
+        </div>
+        <p style="color:#888; font-size:12px; margin-bottom:12px;">以下窗口将自动循环切换并滚动播出您文件夹里配置的所有 HTML 文件：</p>
+        <iframe id="html-rotator-frame" class="embed-frame" title="文件夹HTML轮播区"></iframe>
     </div>
 </div>
 
-<!-- 极度精简的 1 厘米全球网络横向滚动条栏 -->
-<div class="network-bar-wrap">
+<!-- 全球网络横向滚动条栏 -->
+<div class="network-bar-wrap" id="network">
   <table class="network-table">
     <tr>
       <td><div class="network-box">
@@ -403,35 +402,6 @@ footer { background: #000; padding: 20px; text-align: center; color: #888; font-
 </div>
 </section>
 
-<section class="stats">
-<div class="stats-grid">
-<div>
-<h2>50+</h2>
-<p>全球仓库</p>
-</div>
-<div>
-<h2>120+</h2>
-<p>运输国家</p>
-</div>
-<div>
-<h2>500k+</h2>
-<p>累计包裹</p>
-</div>
-<div>
-<h2>99.8%</h2>
-<p>客户满意度</p>
-</div>
-</div>
-</section>
-
-<section class="contact">
-<h2 class="title">联系我们</h2>
-<p>客服微信：DWGLOBAL</p>
-<p>客服邮箱：service@daoweiexpress.com</p>
-<br>
-<a href="http://www.xn--zbssc327di94a.top/contact.html" class="btn">联系客服</a>
-</section>
-
 <footer>
 © 2026 DW Global Express (到位速递). All Rights Reserved.
 </footer>
@@ -442,6 +412,36 @@ footer { background: #000; padding: 20px; text-align: center; color: #888; font-
         nav.classList.toggle('active');
     }
 
+    // -------------------------------------------------------------------------
+    // 【配置区域】：请把您该文件夹内所有的 HTML 文件名称在这里写成数组
+    // 只要这些 HTML 文件跟当前主页面放在同一个文件夹里即可
+    // -------------------------------------------------------------------------
+    const folderHtmlFiles = [
+        "http://www.xn--zbssc327di94a.top/service/www.seapoe.com/network/index.html", // 您之前的默认页面
+        // 请在这里填入您文件夹里其他的HTML文件名，例如:
+        // "page2.html",
+        // "about.html",
+        // "contact_us.html"
+    ];
+
+    let currentFileIndex = 0;
+    function rotateHtmlFiles() {
+        const iframe = document.getElementById('html-rotator-frame');
+        const indicator = document.getElementById('current-file-indicator');
+        if(iframe && folderHtmlFiles.length > 0) {
+            iframe.src = folderHtmlFiles[currentFileIndex];
+            if(indicator) {
+                indicator.innerText = `正在播放 [${currentFileIndex + 1}/${folderHtmlFiles.length}]: ${folderHtmlFiles[currentFileIndex]}`;
+            }
+            currentFileIndex = (currentFileIndex + 1) % folderHtmlFiles.length;
+        }
+    }
+
+    // 每隔 10 秒自动切换滚动播出下一个 HTML 文件
+    setInterval(rotateHtmlFiles, 10000);
+
+
+    // 车站大屏车次和时间逻辑
     const citiesList = [
         "多伦多", "蒙特利尔", "渥太华", "惠特比 (惠特米勒)", "奥沙华", "阿贾克斯", 
         "Pickering", "Markham", "Scarborough", "Mississauga", "Quebec City", 
@@ -545,8 +545,113 @@ footer { background: #000; padding: 20px; text-align: center; color: #888; font-
     window.onload = function() {
         updateClientTimeDisplay();
         generateBatchRows();
+        rotateHtmlFiles(); // 初始化加载文件夹内第一个HTML文件
+    };
+</script>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>到位速递 Express | 文件夹HTML文件全量滚动播映</title>
+
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: Arial, sans-serif; background: #0d1117; color: #fff; line-height: 1.5; }
+
+header {
+    position: fixed; top: 0; left: 0; width: 100%;
+    background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 18px 6%; z-index: 999; border-bottom: 1px solid #222;
+}
+.logo { font-size: 24px; font-weight: bold; color: #ff2d2d; }
+.logo span { color: #f59e0b; }
+nav { display: flex; gap: 20px; }
+nav a { color: white; text-decoration: none; font-size: 14px; }
+nav a:hover { color: #ff3b3b; }
+
+.hero {
+    height: 60vh; display: flex; align-items: center; justify-content: center;
+    text-align: center; padding: 20px;
+    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80");
+    background-size: cover; background-position: center;
+}
+.hero h1 { font-size: 40px; margin-bottom: 15px; }
+
+/* 文件夹内所有 HTML 滚动播出大窗口 */
+.embed-section { padding: 40px 5%; background: #0d1117; }
+.embed-container { background: #161b22; border: 1px solid #222; border-radius: 12px; padding: 20px; }
+.embed-frame { width: 100%; height: 500px; border: 1px solid #333; border-radius: 8px; background: #000; }
+
+footer { background: #000; padding: 20px; text-align: center; color: #888; font-size: 12px; }
+</style>
+
+<!-- 引入方案一自动生成的文件夹HTML文件列表 -->
+<script src="filelist.js"></script>
+</head>
+
+<body>
+
+<header>
+<div class="logo">DAO WEI <span>EXPRESS</span></div>
+<nav>
+<a href="#">首页</a>
+<a href="#rotator">全量HTML轮播</a>
+</nav>
+</header>
+
+<section class="hero">
+<div>
+<h1>文件夹内所有 HTML 文件滚动播映中</h1>
+<p>自动加载同级目录下所有的网页文件并实现轮流播放</p>
+</div>
+</section>
+
+<!-- 文件夹 HTML 文件循环播放窗口 -->
+<div class="embed-section" id="rotator">
+    <div class="embed-container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+            <h3 style="color:#f59e0b; margin:0;">📁 文件夹HTML文件动态轮播中</h3>
+            <span id="file-counter" style="font-size: 12px; color: #0ea5e9; font-family: monospace;">加载中...</span>
+        </div>
+        <iframe id="folder-frame" class="embed-frame" title="文件夹网页播映"></iframe>
+    </div>
+</div>
+
+<footer>
+© 2026 DW Global Express (到位速递). All Rights Reserved.
+</footer>
+
+<script>
+    // 如果没有通过 filelist.js 成功加载，设置一个默认备用数组
+    if (typeof folderHtmlFiles === 'undefined' || folderHtmlFiles.length === 0) {
+        var folderHtmlFiles = ["index.html"]; 
+    }
+
+    let currentIndex = 0;
+    function playNextHtml() {
+        const frame = document.getElementById('folder-frame');
+        const counter = document.getElementById('file-counter');
+        if(frame && folderHtmlFiles.length > 0) {
+            frame.src = folderHtmlFiles[currentIndex];
+            if(counter) {
+                counter.innerText = `正在播放第 ${currentIndex + 1} / ${folderHtmlFiles.length} 个文件: ${folderHtmlFiles[currentIndex]}`;
+            }
+            currentIndex = (currentIndex + 1) % folderHtmlFiles.length;
+        }
+    }
+
+    // 每隔 10 秒自动切换下一个 HTML 文件滚动播出
+    setInterval(playNextHtml, 10000);
+
+    window.onload = function() {
+        playNextHtml();
     };
 </script>
 
+</body>
+</html>
 </body>
 </html>
