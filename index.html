@@ -1,332 +1,142 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>到位速递 Express | 全球国际物流与加东干线调度中枢</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>到位速递 Express | 全球国际物流回国行李、加拿大、美国、英国、澳洲全方位的国际速递、酒店取件、干线运输及清关保障服务</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: Arial, Helvetica, sans-serif; background: #0d1117; color: #fff; line-height: 1.5; }
 
-<style>
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+        /* 导航 */
+        header {
+            position: fixed; top: 0; left: 0; width: 100%;
+            background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px);
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 18px 6%; z-index: 999; border-bottom: 1px solid #222;
+        }
+        .logo { font-size: 24px; font-weight: bold; color: #ff2d2d; letter-spacing: 1px; }
+        .logo span { color: #f59e0b; }
+        nav { display: flex; gap: 20px; }
+        nav a { color: white; text-decoration: none; transition: .3s; font-size: 14px; }
+        nav a:hover { color: #ff3b3b; }
 
-html {
-    scroll-behavior: smooth;
-}
+        /* Hero */
+        .hero {
+            height: 60vh; display: flex; align-items: center; justify-content: center;
+            text-align: center; padding: 20px;
+            background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80");
+            background-size: cover; background-position: center;
+        }
+        .hero h1 { font-size: 38px; margin-bottom: 15px; color: #fff; }
+        .hero p { font-size: 16px; color: #ddd; }
 
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #0d1117;
-    color: #fff;
-    line-height: 1.5;
-}
+        /* 车站大屏区 */
+        .board-section { padding: 40px 5% 20px 5%; background: #0b0e14; }
+        .station-board {
+            background-color: #07090e; border: 2px solid #222; border-radius: 12px; padding: 15px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.9), 0 20px 40px rgba(0,0,0,0.7);
+        }
+        .board-table-header {
+            display: grid; grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1.2fr;
+            background: #1a2230; padding: 10px; border-radius: 6px; font-size: 11px;
+            font-weight: 700; color: #f59e0b; text-transform: uppercase; margin-bottom: 8px; text-align: center;
+        }
+        .board-rows-container { max-height: 350px; overflow-y: auto; }
+        .train-row {
+            display: grid; grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1.2fr; gap: 8px; align-items: center;
+            background: #161b22; border: 1px solid #222; padding: 10px; border-radius: 6px; margin-bottom: 6px; font-size: 12px; text-align: center;
+        }
+        .flip-cell { background: #000; color: #f59e0b; font-family: monospace; font-weight: bold; padding: 5px 8px; border-radius: 3px; border: 1px solid #222; }
+        .truck-id { font-weight: bold; color: #0ea5e9; font-family: monospace; }
+        .route-path { color: #fff; font-weight: 600; text-align: left; padding-left: 5px; }
+        .freq-tag { background: rgba(14, 165, 233, 0.15); color: #0ea5e9; padding: 2px 6px; border-radius: 3px; font-size: 10px; }
+        .status-running { color: #10b981; font-weight: bold; }
 
-/* 导航 */
-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 0, 0, 0.85);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 18px 6%;
-    z-index: 999;
-    border-bottom: 1px solid #222;
-}
+        /* 3299个按钮生成区（地下/底部区域） */
+        .buttons-section { padding: 40px 5%; background: #0d1117; }
+        .buttons-container {
+            background: #161b22; border: 1px solid #222; border-radius: 12px; padding: 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .buttons-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; flex-wrap: wrap; gap: 10px; }
+        .buttons-header h3 { color: #f59e0b; font-size: 20px; }
+        .badge { background: #ff2d2d; color: #fff; padding: 4px 12px; border-radius: 20px; font-size: 13px; font-weight: bold; }
+        
+        .search-box {
+            width: 100%; padding: 12px 18px; font-size: 15px; background: #0b0e14; border: 1px solid #333;
+            color: #fff; border-radius: 8px; margin-bottom: 20px; outline: none; transition: border 0.3s;
+        }
+        .search-box:focus { border-color: #ff2d2d; }
 
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ff2d2d;
-    letter-spacing: 1px;
-}
-.logo span {
-    color: #f59e0b;
-}
+        /* 3299个网格按钮面板 */
+        .grid-buttons {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 8px;
+            max-height: 500px;
+            overflow-y: auto;
+            padding-right: 5px;
+        }
+        .grid-buttons::-webkit-scrollbar { width: 6px; }
+        .grid-buttons::-webkit-scrollbar-thumb { background: #ff2d2d; border-radius: 3px; }
 
-nav {
-    display: flex;
-    gap: 20px;
-}
+        .btn-item {
+            display: block;
+            padding: 10px 6px;
+            background: #21262d;
+            color: #58a6ff;
+            text-align: center;
+            text-decoration: none;
+            border: 1px solid #30363d;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 500;
+            transition: all 0.2s;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .btn-item:hover {
+            background: #ff2d2d;
+            color: #fff;
+            border-color: #ff2d2d;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(255,45,45,0.3);
+        }
 
-nav a {
-    color: white;
-    text-decoration: none;
-    transition: .3s;
-    font-size: 14px;
-}
-
-nav a:hover {
-    color: #ff3b3b;
-}
-
-.menu {
-    display: none;
-    font-size: 26px;
-    cursor: pointer;
-}
-
-/* Hero */
-.hero {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 20px;
-    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80");
-    background-size: cover;
-    background-position: center;
-}
-
-.hero h1 {
-    font-size: 45px;
-    margin-bottom: 20px;
-    color: #fff;
-}
-
-.hero p {
-    font-size: 18px;
-    color: #ddd;
-    margin-bottom: 30px;
-}
-
-.btn {
-    display: inline-block;
-    padding: 14px 35px;
-    background: #ff2d2d;
-    color: white;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: .3s;
-    font-weight: bold;
-}
-
-.btn:hover {
-    background: #ff6600;
-}
-
-/* 车站机械拍照翻页大屏专区 */
-.board-section {
-    padding: 40px 5% 20px 5%;
-    background: #0b0e14;
-}
-
-.station-board {
-    background-color: #07090e;
-    border: 2px solid #222;
-    border-radius: 12px;
-    padding: 15px;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.9), 0 20px 40px rgba(0,0,0,0.7);
-}
-
-.board-table-header {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1.2fr;
-    background: #1a2230;
-    padding: 10px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 700;
-    color: #f59e0b;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-    text-align: center;
-}
-
-.board-rows-container {
-    max-height: 420px;
-    overflow-y: auto;
-}
-.board-rows-container::-webkit-scrollbar {
-    width: 4px;
-}
-.board-rows-container::-webkit-scrollbar-thumb {
-    background: #ff2d2d;
-    border-radius: 2px;
-}
-
-.train-row {
-    display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr 1fr 1.2fr;
-    gap: 8px;
-    align-items: center;
-    background: #161b22;
-    border: 1px solid #222;
-    padding: 10px;
-    border-radius: 6px;
-    margin-bottom: 6px;
-    font-size: 12px;
-    text-align: center;
-}
-
-.flip-cell {
-    background: #000;
-    color: #f59e0b;
-    font-family: monospace;
-    font-weight: bold;
-    padding: 5px 8px;
-    border-radius: 3px;
-    border: 1px solid #222;
-    text-align: center;
-}
-
-.truck-id {
-    font-weight: bold;
-    color: #0ea5e9;
-    font-family: monospace;
-}
-.route-path {
-    color: #fff;
-    font-weight: 600;
-    text-align: left;
-    padding-left: 5px;
-}
-.freq-tag {
-    background: rgba(14, 165, 233, 0.15);
-    color: #0ea5e9;
-    padding: 2px 6px;
-    border-radius: 3px;
-    font-size: 10px;
-}
-.status-running {
-    color: #10b981;
-    font-weight: bold;
-}
-
-/* 嵌入式子网页窗口区域 (iframe) 滚动播出区 */
-.embed-section {
-    padding: 40px 5%;
-    background: #0d1117;
-}
-.embed-container {
-    background: #161b22;
-    border: 1px solid #222;
-    border-radius: 12px;
-    padding: 20px;
-}
-.embed-container h3 {
-    margin-bottom: 10px;
-    color: #f59e0b;
-    font-size: 18px;
-}
-.embed-frame {
-    width: 100%;
-    height: 450px;
-    border: 1px solid #333;
-    border-radius: 8px;
-    background: #000;
-}
-
-/* 全球网络横向滚动条栏 */
-.network-bar-wrap {
-  background: #161b22;
-  padding: 10px 5%;
-  border-top: 1px solid #222;
-  border-bottom: 1px solid #222;
-}
-.network-table { width: 100%; border-collapse: collapse; table-layout: fixed; }
-.network-table td { border: 1px solid #333; padding: 0 4px; height: 28px; overflow: hidden; background: #111; }
-.network-box { width: 100%; height: 26px; overflow-x: auto; overflow-y: hidden; white-space: nowrap; line-height: 26px; font-size: 11px; }
-.network-box::-webkit-scrollbar { height: 2px; }
-.network-box::-webkit-scrollbar-thumb { background: #ff2d2d; border-radius: 2px; }
-.network-box a { color: #ddd; text-decoration: none; margin-right: 6px; }
-.network-box a:hover { color: #ff2d2d; text-decoration: underline; }
-.net-sub { font-size: 10px; margin-left: -4px; margin-right: 6px; color: #aaa; }
-.net-continent { font-weight: bold; color: #ff4040; margin-right: 8px; }
-
-/* 功能区与统计 */
-.section { padding: 60px 6%; }
-.title { text-align: center; font-size: 32px; margin-bottom: 40px; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; }
-.card { background: #161b22; padding: 25px; border-radius: 12px; border: 1px solid #222; }
-.card h3 { margin-bottom: 12px; color: #ff4040; }
-.card p { color: #aaa; font-size: 14px; }
-
-.stats { background: #111; padding: 50px 6%; }
-.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 20px; text-align: center; }
-.stats h2 { font-size: 36px; color: #ff2d2d; margin-bottom: 5px; }
-.stats p { color: #aaa; font-size: 14px; }
-
-.contact { padding: 60px 6%; text-align: center; }
-.contact p { color: #aaa; margin-bottom: 8px; }
-
-footer { background: #000; padding: 20px; text-align: center; color: #888; font-size: 12px; }
-
-/* 手机端深度适配响应式 */
-@media(max-width: 768px) {
-    header { padding: 15px 5%; }
-    nav {
-        display: none;
-        position: absolute;
-        top: 60px;
-        right: 0;
-        background: #111;
-        width: 200px;
-        flex-direction: column;
-        border: 1px solid #333;
-    }
-    nav.active {
-        display: flex;
-    }
-    nav a {
-        padding: 12px 15px;
-        border-bottom: 1px solid #222;
-    }
-    .menu {
-        display: block;
-    }
-    .hero h1 { font-size: 32px; }
-    .hero p { font-size: 15px; }
-    
-    .board-table-header { display: none; }
-    .train-row {
-        grid-template-columns: 1fr;
-        gap: 6px;
-        text-align: left;
-        padding: 12px;
-    }
-    .route-path { padding-left: 0; font-size: 14px; color: #f59e0b; }
-}
-</style>
+        footer { background: #000; padding: 20px; text-align: center; color: #888; font-size: 12px; }
+    </style>
 </head>
-
 <body>
 
+<!-- 顶级导航 -->
 <header>
-<div class="logo">DAO WEI <span>EXPRESS</span></div>
-<div class="menu" onclick="menuToggle()">☰</div>
-<nav id="nav">
-<a href="#board">首页</a>
-<a href="#board">物流大屏</a>
-<a href="#embed-box">文件夹HTML轮播</a>
-<a href="#network">全球网络</a>
-</nav>
+    <div class="logo">DAO WEI <span>EXPRESS</span></div>
+    <nav>
+        <a href="#board">智能调度大屏</a>
+        <a href="#network">全球网络</a>
+        <a href="#features">核心优势</a>
+        <a href="../" class="nav-btn">返回上级目录</a>
+    </nav>
 </header>
 
+<!-- 视觉大图区 -->
 <section class="hero">
-<div>
-<h1>全球国际物流 · 一站直达</h1>
-<p>加拿大 ｜ 中国 ｜ 美国 ｜ 英国 ｜ 澳洲 专线运输</p>
-<a href="#board" class="btn">查看实时运力大屏</a>
-</div>
-</section>
-
-<!-- 车站机械拍照翻页大屏专区 -->
-<div class="board-section" id="board">
-    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-        <h3 style="color:#ff2d2d; font-size:16px;">🚛 到位速递加东卡车干线智能调度大屏</h3>
-        <div style="font-size:11px; color:#aaa; font-family:monospace;">
-            <span id="client-live-time">校准中...</span> | 刷新倒计时: <span id="countdown" style="color:#ff2d2d; font-weight:bold;">15</span>s 
-            <button onclick="manualRefresh()" style="margin-left:6px; background:#ff2d2d; color:#fff; border:none; padding:3px 8px; border-radius:3px; cursor:pointer; font-size:11px;">刷新</button>
+    <div class="hero-content">
+        <h1>全球国际物流 <br><span>加东干线与跨境专线智能调度</span></h1>
+        <p>提供中国、加拿大、美国、英国、澳洲全方位的国际速递、酒店取件、干线运输及清关保障服务。</p>
+        <div class="hero-btns">
+            <a href="#board" class="btn-main">实时运力大屏</a>
+            <a href="#network" class="btn-sub">全球节点网络</a>
         </div>
     </div>
+</section>
 
+<!-- 车站大屏区 -->
+<div class="board-section" id="board">
+    <h3 style="color:#ff2d2d; font-size:16px; margin-bottom:12px;">🚛 到位速递加东卡车干线智能调度大屏</h3>
     <div class="station-board">
         <div class="board-table-header">
             <div>车次方向</div>
@@ -336,179 +146,78 @@ footer { background: #000; padding: 20px; text-align: center; color: #888; font-
             <div>车型</div>
             <div>当前状态</div>
         </div>
-
         <div class="board-rows-container" id="board-rows"></div>
     </div>
 </div>
 
-<!-- ==================== 核心：文件夹内所有 HTML 文件滚动播出窗口 ==================== -->
-<div class="embed-section" id="embed-box">
-    <div class="embed-container">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-            <h3 style="margin:0;">📁 文件夹内所有 HTML 文件轮流滚动播映中</h3>
-            <span id="current-file-indicator" style="font-size: 12px; color: #0ea5e9; font-family: monospace;">正在加载...</span>
+<!-- ==================== 底部地下：生成 3299 个按钮区域 ==================== -->
+<div class="buttons-section" id="buttons-area">
+    <div class="buttons-container">
+        <div class="buttons-header">
+            <h3>📁 到位速递客服微信 fundes </h3>
+            <span class="badge">到位速递</span>
         </div>
-        <p style="color:#888; font-size:12px; margin-bottom:12px;">以下窗口将自动循环切换并滚动播出您文件夹里配置的所有 HTML 文件：</p>
-        <iframe id="html-rotator-frame" class="embed-frame" title="文件夹HTML轮播区"></iframe>
+        <p style="color:#888; font-size:13px; margin-bottom:15px;">您可以在下方直接搜索单号或点击任意按钮查看对应的网页（1.html ~ 3299.html）：</p>
+        
+        <!-- 实时搜索框 -->
+        <input type="text" id="btn-search" class="search-box" placeholder="到位速递4天到中国" oninput="filterButtons()">
+        
+        <!-- 到位速递4382287888-->
+        <div class="grid-buttons" id="buttons-grid"></div>
     </div>
 </div>
 
-<!-- 全球网络横向滚动条栏 -->
-<div class="network-bar-wrap" id="network">
-  <table class="network-table">
-    <tr>
-      <td><div class="network-box">
-        <span class="net-continent">亚洲:</span>
-        <a href="http://www.xn--zbssc327di94a.top/service/www.seapoe.com/network/country/CN.html">中国</a><a class="net-sub" href="http://www.xn--zbssc327di94a.top/service/seapoe.cn/index.html" target="_blank">(中国站)</a>
-        <a href="http://www.xn--zbssc327di94a.top/service/www.seapoe.com/network/country/JP.html">日本</a><a class="net-sub" href="http://www.xn--zbssc327di94a.top/service/seapoe-jp.com/index.html" target="_blank">(日本站)</a>
-        <a href="http://www.xn--zbssc327di94a.top/service/www.seapoe.com/network/country/SG.html">新加坡</a>
-        <a href="http://www.xn--zbssc327di94a.top/service/www.seapoe.com/network/country/HK.html">中国香港</a>
-        <a href="http://www.xn--zbssc327di94a.top/service/www.seapoe.com/network/country/MY.html">马来西亚</a>
-        <a href="http://www.xn--zbssc327di94a.top/service/www.seapoe.com/network/country/TW.html">中国台湾</a>
-        <span class="net-continent" style="margin-left:15px;">欧洲:</span>
-        <a href="http://www.xn--zbssc327di94a.top/service/www.seapoe.com/network/country/DE.html">德国</a>
-        <a href="http://www.xn--zbssc327di94a.top/service/www.seapoe.com/network/country/GB.html">英国</a>
-        <a href="http://www.xn--zbssc327di94a.top/service/www.seapoe.com/network/country/FR.html">法国</a>
-        <span class="net-continent" style="margin-left:15px;">北美洲:</span>
-        <a href="http://www.xn--zbssc327di94a.top/service/www.seapoe.com/network/country/US.html">美国</a>
-        <a href="http://www.xn--zbssc327di94a.top/service/www.seapoe.com/network/country/CA.html">加拿大 (惠特比枢纽)</a>
-        <span class="net-continent" style="margin-left:15px;">大洋洲:</span>
-        <a href="http://www.xn--zbssc327di94a.top/service/www.seapoe.com/network/country/AU.html">澳大利亚</a>
-        <a href="http://www.xn--zbssc327di94a.top/service/www.seapoe.com/network/country/NZ.html">新西兰</a>
-      </div></td>
-    </tr>
-  </table>
-</div>
-
-<section class="section">
-<h2 class="title">我们的优势</h2>
-<div class="grid">
-<div class="card">
-<h3>全球专线</h3>
-<p>覆盖中国、加拿大、美国、英国、澳大利亚等多个国家。</p>
-</div>
-<div class="card">
-<h3>只算实重</h3>
-<p>拒绝体积重，无任何隐藏收费。</p>
-</div>
-<div class="card">
-<h3>包清关 包关税</h3>
-<p>专业团队全程处理，运输更加省心。</p>
-</div>
-<div class="card">
-<h3>物流实时查询</h3>
-<p>订单状态实时更新，手机电脑同步查看。</p>
-</div>
-</div>
-</section>
-
 <footer>
-© 2026 DW Global Express (到位速递). All Rights Reserved.
+    © 2026 DW Global Express (到位速递). All Rights Reserved.
 </footer>
 
 <script>
-    function menuToggle() {
-        const nav = document.getElementById('nav');
-        nav.classList.toggle('active');
+    // 自动生成 1 到 3299 的按钮
+    function renderButtons() {
+        const grid = document.getElementById('buttons-grid');
+        let html = '';
+        for (let i = 1; i <= 3299; i++) {
+            html += `<a href="${i}.html" class="btn-item" target="_blank" title="网页 ${i}">网页 ${i}</a>`;
+        }
+        grid.innerHTML = html;
     }
 
-    // -------------------------------------------------------------------------
-    // 【配置区域】：请把您该文件夹内所有的 HTML 文件名称在这里写成数组
-    // 只要这些 HTML 文件跟当前主页面放在同一个文件夹里即可
-    // -------------------------------------------------------------------------
-    const folderHtmlFiles = [
-        "http://www.xn--zbssc327di94a.top/service/www.seapoe.com/network/index.html", // 您之前的默认页面
-        // 请在这里填入您文件夹里其他的HTML文件名，例如:
-        // "page2.html",
-        // "about.html",
-        // "contact_us.html"
-    ];
-
-    let currentFileIndex = 0;
-    function rotateHtmlFiles() {
-        const iframe = document.getElementById('html-rotator-frame');
-        const indicator = document.getElementById('current-file-indicator');
-        if(iframe && folderHtmlFiles.length > 0) {
-            iframe.src = folderHtmlFiles[currentFileIndex];
-            if(indicator) {
-                indicator.innerText = `正在播放 [${currentFileIndex + 1}/${folderHtmlFiles.length}]: ${folderHtmlFiles[currentFileIndex]}`;
+    // 实时搜索过滤按钮
+    function filterButtons() {
+        const keyword = document.getElementById('btn-search').value.toLowerCase().trim();
+        const buttons = document.getElementById('buttons-grid').getElementsByClassName('btn-item');
+        
+        for (let i = 0; i < buttons.length; i++) {
+            const text = buttons[i].textContent.toLowerCase();
+            if (text.includes(keyword)) {
+                buttons[i].style.display = 'block';
+            } else {
+                buttons[i].style.display = 'none';
             }
-            currentFileIndex = (currentFileIndex + 1) % folderHtmlFiles.length;
         }
     }
 
-    // 每隔 10 秒自动切换滚动播出下一个 HTML 文件
-    setInterval(rotateHtmlFiles, 10000);
-
-
-    // 车站大屏车次和时间逻辑
-    const citiesList = [
-        "多伦多", "蒙特利尔", "渥太华", "惠特比 (惠特米勒)", "奥沙华", "阿贾克斯", 
-        "Pickering", "Markham", "Scarborough", "Mississauga", "Quebec City", 
-        "Kingston", "Hamilton", "London", "Kitchener", "Windsor", "Sudbury", 
-        "Sherbrooke", "Trois-Rivières", "Laval", "Gatineau", "Longueuil", 
-        "Brossard", "Barrie", "St. Catharines", "Newmarket", "Vaughan", 
-        "Richmond Hill", "Brampton", "Burlington", "Oakville", "Lévis"
-    ];
-
-    const truckTypesList = [
-        "53尺全封闭干线大卡", "26尺尾板厢式货车", "48尺标箱冷藏卡", 
-        "36尺中型往返货车", "24尺城际快运卡", "53尺双A双桥大卡", "16尺短驳小卡"
-    ];
-
-    const statusList = [
-        "🟢 去程高速对开中", "🔵 返程满载疾驰中", "🟡 当日折返整备中", 
-        "🟢 准点到达分拨中心", "🟠 晚班对开候命中", "🟢 杜兰区短驳执行中"
-    ];
+    // 车站大屏动态刷新逻辑
+    const citiesList = ["多伦多", "蒙特利尔", "渥太华", "惠特比", "奥沙华", "阿贾克斯", "Markham", "Scarborough", "Mississauga", "Quebec City", "Hamilton", "London", "Brossard", "Laval"];
+    const truckTypesList = ["53尺全封闭干线大卡", "26尺尾板厢式货车", "48尺标箱冷藏卡", "24尺城际快运卡"];
+    const statusList = ["🟢 去程高速对开中", "🔵 返程满载疾驰中", "🟡 当日折返整备中", "🟢 准点到达分拨中心"];
 
     function generateBatchRows() {
         const container = document.getElementById('board-rows');
         if (!container) return;
         let html = '';
-        const clientNow = new Date();
-        
-        for(let i = 1; i <= 12; i++) {
-            let originIdx = Math.floor(Math.random() * citiesList.length);
-            let destIdx;
-            do {
-                destIdx = Math.floor(Math.random() * citiesList.length);
-            } while(destIdx === originIdx);
-
-            let cityA = citiesList[originIdx];
-            let cityB = citiesList[destIdx];
-
-            let isReverse = Math.random() > 0.5;
-            let origin = isReverse ? cityB : cityA;
-            let dest = isReverse ? cityA : cityB;
-            let directionTag = isReverse ? "【返程】" : "【去程】";
-
-            if(i === 1) {
-                origin = "多伦多";
-                dest = "蒙特利尔";
-                directionTag = "【主干线对开】";
-            } else if(i === 2) {
-                origin = "惠特比 (惠特米勒)";
-                dest = "多伦多";
-                directionTag = "【短驳对开】";
-            }
-
+        for(let i = 1; i <= 10; i++) {
+            let origin = citiesList[Math.floor(Math.random() * citiesList.length)];
+            let dest = citiesList[Math.floor(Math.random() * citiesList.length)];
             let truckId = `DW-${Math.floor(Math.random() * 89999) + 10000}`;
             let truck = truckTypesList[Math.floor(Math.random() * truckTypesList.length)];
             let status = statusList[Math.floor(Math.random() * statusList.length)];
-            
-            let shiftDays = Math.floor(Math.random() * 4);
-            let rowDate = new Date(clientNow.getTime() + shiftDays * 24 * 60 * 60 * 1000);
-            let rMonth = rowDate.getMonth() + 1;
-            let rDay = rowDate.getDate();
-            let randomHour = String(Math.floor(Math.random() * 12) + 8).padStart(2, '0');
-            let timeStr = `${rMonth}月${rDay}日 ${randomHour}:00`;
-
             html += `
                 <div class="train-row">
-                    <div class="truck-id">${truckId}<br><span style="font-size:9px; color:#f59e0b;">${directionTag}</span></div>
+                    <div class="truck-id">${truckId}</div>
                     <div class="route-path">${origin} ⇄ ${dest}</div>
                     <div><span class="freq-tag">一天一趟</span></div>
-                    <div class="flip-cell">${timeStr}</div>
+                    <div class="flip-cell">10月15日 10:00</div>
                     <div style="font-size:11px; color:#94a3b8;">${truck}</div>
                     <div class="status-running">${status}</div>
                 </div>
@@ -517,141 +226,11 @@ footer { background: #000; padding: 20px; text-align: center; color: #888; font-
         container.innerHTML = html;
     }
 
-    function updateClientTimeDisplay() {
-        const now = new Date();
-        const timeEl = document.getElementById('client-live-time');
-        if (timeEl) {
-            timeEl.innerText = `${now.getMonth()+1}月${now.getDate()}日 ${String(now.getHours()).padStart(2,'0')}:${String(now.getMinutes()).padStart(2,'0')}:${String(now.getSeconds()).padStart(2,'0')}`;
-        }
-    }
-
-    let countdownTime = 15;
-    setInterval(() => {
-        countdownTime--;
-        updateClientTimeDisplay();
-        if(countdownTime <= 0) {
-            countdownTime = 15;
-            generateBatchRows();
-        }
-        const cdEl = document.getElementById('countdown');
-        if (cdEl) cdEl.innerText = countdownTime;
-    }, 1000);
-
-    function manualRefresh() {
-        countdownTime = 15;
-        generateBatchRows();
-    }
-
     window.onload = function() {
-        updateClientTimeDisplay();
+        renderButtons();
         generateBatchRows();
-        rotateHtmlFiles(); // 初始化加载文件夹内第一个HTML文件
-    };
-</script>
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>到位速递 Express | 文件夹HTML文件全量滚动播映</title>
-
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-html { scroll-behavior: smooth; }
-body { font-family: Arial, sans-serif; background: #0d1117; color: #fff; line-height: 1.5; }
-
-header {
-    position: fixed; top: 0; left: 0; width: 100%;
-    background: rgba(0, 0, 0, 0.85); backdrop-filter: blur(10px);
-    display: flex; justify-content: space-between; align-items: center;
-    padding: 18px 6%; z-index: 999; border-bottom: 1px solid #222;
-}
-.logo { font-size: 24px; font-weight: bold; color: #ff2d2d; }
-.logo span { color: #f59e0b; }
-nav { display: flex; gap: 20px; }
-nav a { color: white; text-decoration: none; font-size: 14px; }
-nav a:hover { color: #ff3b3b; }
-
-.hero {
-    height: 60vh; display: flex; align-items: center; justify-content: center;
-    text-align: center; padding: 20px;
-    background: linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)), url("https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=80");
-    background-size: cover; background-position: center;
-}
-.hero h1 { font-size: 40px; margin-bottom: 15px; }
-
-/* 文件夹内所有 HTML 滚动播出大窗口 */
-.embed-section { padding: 40px 5%; background: #0d1117; }
-.embed-container { background: #161b22; border: 1px solid #222; border-radius: 12px; padding: 20px; }
-.embed-frame { width: 100%; height: 500px; border: 1px solid #333; border-radius: 8px; background: #000; }
-
-footer { background: #000; padding: 20px; text-align: center; color: #888; font-size: 12px; }
-</style>
-
-<!-- 引入方案一自动生成的文件夹HTML文件列表 -->
-<script src="filelist.js"></script>
-</head>
-
-<body>
-
-<header>
-<div class="logo">DAO WEI <span>EXPRESS</span></div>
-<nav>
-<a href="#">首页</a>
-<a href="#rotator">全量HTML轮播</a>
-</nav>
-</header>
-
-<section class="hero">
-<div>
-<h1>文件夹内所有 HTML 文件滚动播映中</h1>
-<p>自动加载同级目录下所有的网页文件并实现轮流播放</p>
-</div>
-</section>
-
-<!-- 文件夹 HTML 文件循环播放窗口 -->
-<div class="embed-section" id="rotator">
-    <div class="embed-container">
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-            <h3 style="color:#f59e0b; margin:0;">📁 文件夹HTML文件动态轮播中</h3>
-            <span id="file-counter" style="font-size: 12px; color: #0ea5e9; font-family: monospace;">加载中...</span>
-        </div>
-        <iframe id="folder-frame" class="embed-frame" title="文件夹网页播映"></iframe>
-    </div>
-</div>
-
-<footer>
-© 2026 DW Global Express (到位速递). All Rights Reserved.
-</footer>
-
-<script>
-    // 如果没有通过 filelist.js 成功加载，设置一个默认备用数组
-    if (typeof folderHtmlFiles === 'undefined' || folderHtmlFiles.length === 0) {
-        var folderHtmlFiles = ["index.html"]; 
-    }
-
-    let currentIndex = 0;
-    function playNextHtml() {
-        const frame = document.getElementById('folder-frame');
-        const counter = document.getElementById('file-counter');
-        if(frame && folderHtmlFiles.length > 0) {
-            frame.src = folderHtmlFiles[currentIndex];
-            if(counter) {
-                counter.innerText = `正在播放第 ${currentIndex + 1} / ${folderHtmlFiles.length} 个文件: ${folderHtmlFiles[currentIndex]}`;
-            }
-            currentIndex = (currentIndex + 1) % folderHtmlFiles.length;
-        }
-    }
-
-    // 每隔 10 秒自动切换下一个 HTML 文件滚动播出
-    setInterval(playNextHtml, 10000);
-
-    window.onload = function() {
-        playNextHtml();
     };
 </script>
 
-</body>
-</html>
 </body>
 </html>
