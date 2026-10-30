@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>联系我们 - 到位速递 / 到位国际</title>
+    <!-- 引入 FontAwesome 图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1d4ed8;
+            --text-color: #1f2937;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --gray-border: #e2e8f0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            color: var(--text-color);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* 顶部横幅 */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+            color: var(--white);
+            text-align: center;
+            padding: 60px 20px;
+            margin-bottom: 40px;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .page-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* 主体布局：左侧信息，右侧表单 */
+        .contact-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* 信息卡片区域 */
+        .contact-info {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--text-color);
+        }
+
+        .contact-info p {
+            color: #64748b;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .info-item i {
+            font-size: 1.25rem;
+            color: var(--primary-color);
+            margin-right: 15px;
+            margin-top: 4px;
+        }
+
+        .info-content h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .info-content span, .info-content a {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .info-content a:hover {
+            color: var(--primary-color);
+        }
+
+        /* 表单区域 */
+        .contact-form {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form h2 {
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid var(--gray-border);
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            height: 140px;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 12px 30px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            width: 100%;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* 页脚版权 */
+        footer {
+            text-align: center;
+            padding: 30px 0;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid var(--gray-border);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 顶栏介绍 -->
+    <div class="page-header">
+        <div class="container">
+            <h1>联系我们</h1>
+            <p>随时与我们取得联系，我们将为您提供专业、高效的服务支持。</p>
+        </div>
+    </div>
+
+    <!-- 主要内容区 -->
+    <div class="container">
+        <div class="contact-wrapper">
+            
+            <!-- 左侧：联系方式 -->
+            <div class="contact-info">
+                <h2>到位速递 / 到位国际</h2>
+                <p>无论您是需要国际物流、货运咨询还是相关业务支持，都可以通过以下方式找到我们。</p>
+                
+                <div class="info-item">
+                    <i class="fas fa-phone-alt"></i>
+                    <div class="info-content">
+                        <h3>咨询热线</h3>
+                        <span>514-552-2066</span><br>
+                        <span>+1 (438) 228-7888 / +1 (917) 621-0118</span>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fab fa-weixin"></i>
+                    <div class="info-content">
+                        <h3>微信客服 (WeChat ID)</h3>
+                        <span>fundes</span>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div class="info-content">
+                        <h3>服务区域</h3>
+                        <span>加拿大蒙特利尔及周边地区（支持国际货运与物流对接）</span>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="info-content">
+                        <h3>工作时间</h3>
+                        <span>周一至周日 9:00 - 18:00</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧：留言表单 -->
+            <div class="contact-form">
+                <h2>在线留言</h2>
+                <form action="#" method="POST" onsubmit="alert('感谢您的留言，我们会尽快与您联系！'); return false;">
+                    <div class="form-group">
+                        <label for="name">您的姓名 / 称呼</label>
+                        <input type="text" id="name" name="name" class="form-control" placeholder="请输入您的姓名" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">联系电话</label>
+                        <input type="tel" id="phone" name="phone" class="form-control" placeholder="请输入您的电话号码" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="wechat">微信账号 / 邮箱</label>
+                        <input type="text" id="wechat" name="wechat" class="form-control" placeholder="选填，方便我们给您回复">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">留言内容 / 业务需求</label>
+                        <textarea id="message" name="message" class="form-control" placeholder="请详细描述您的需求，例如物流线路、物品尺寸或租赁咨询..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">立即提交</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 到位速递 (到位国际) 版权所有. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
