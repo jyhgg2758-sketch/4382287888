@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- 动态SEO标签：中国红康养版（无黑字）· 全球与全国全地级市老人陪护 5天4夜 -->
+    <!-- 动态SEO标签：全红字体中国红康养版 · 全球与全国全地级市老人陪护 5天4夜 -->
     <title id="page-title">到位陪护 - 全国所有地级市及全球城市老人陪护 5天4夜康养服务中心</title>
     <meta id="page-keywords" name="keywords" content="老人陪护5天4夜, 全国地级市老人陪护, 海外老人陪护, 就医陪诊, 居家照护, 康养旅居陪护">
     <meta id="page-desc" name="description" content="到位陪护覆盖中国360+直辖市/地级市/自治州/盟及全球主要城市，提供老人陪护 5天4夜 暖心照护服务，涵盖三甲医院就医陪诊、5天4夜居家照护、术后康复与慢节奏康养陪伴。">
@@ -12,59 +12,64 @@
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Microsoft YaHei", sans-serif;
-            background-color: #fffaf9;
-            color: #991b1b;
+            background-color: #fff8f8;
+            color: #dc2626 !important;
+        }
+        body * {
+            color: #dc2626;
         }
         /* 中国红暖光玻璃顶栏 */
         .glass-header {
-            background: rgba(255, 252, 251, 0.96);
+            background: rgba(255, 248, 248, 0.97);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid #fecaca;
         }
-        /* 中国红锦缎渐变 */
-        .china-red-gradient {
-            background: linear-gradient(135deg, #c8102e 0%, #991b1b 55%, #7f1d1d 100%);
+        /* 中国红锦缎渐变（浅红底配正红字，确保全红字清晰可读） */
+        .china-red-banner {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 55%, #fca5a5 100%);
+            color: #b91c1c !important;
         }
         .china-red-warm-hero {
-            background: linear-gradient(135deg, #b91c1c 0%, #c8102e 48%, #991b1b 100%);
+            background: linear-gradient(135deg, #fff1f2 0%, #ffe4e6 50%, #fecdd3 100%);
+            color: #b91c1c !important;
         }
-        /* 康养暖金徽章 */
-        .gold-pill {
-            background: linear-gradient(90deg, #fef3c7 0%, #fde68a 100%);
-            color: #92400e;
-            border: 1px solid #fcd34d;
+        /* 亮红强调徽章 */
+        .red-pill {
+            background: #ffe4e6;
+            color: #dc2626 !important;
+            border: 1px solid #f87171;
         }
-        /* 底部全城市矩阵（暖红康养主题） */
+        /* 底部全城市矩阵（浅红底配正红字，全部红字） */
         .buttons-section {
-            background: linear-gradient(180deg, #7f1d1d 0%, #5c0f16 100%);
+            background: linear-gradient(180deg, #ffe4e6 0%, #fecdd3 100%);
             padding: 60px 20px;
             margin-top: 50px;
-            color: #fff7ed;
-            border-top: 4px solid #f59e0b;
+            color: #b91c1c !important;
+            border-top: 3px solid #ef4444;
         }
         .buttons-container { max-width: 1200px; margin: 0 auto; }
         .buttons-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 10px; }
-        .buttons-header h3 { font-size: 20px; font-weight: bold; color: #fffbeb; }
-        .badge { background: linear-gradient(90deg, #f59e0b, #d97706); color: #fffbeb; padding: 4px 14px; border-radius: 20px; font-size: 12px; font-weight: bold; box-shadow: 0 2px 8px rgba(245, 158, 11, 0.35); }
-        .search-box { width: 100%; padding: 12px 16px; background: rgba(255, 255, 255, 0.12); border: 1px solid rgba(254, 202, 202, 0.45); border-radius: 12px; color: #fffbeb; font-size: 14px; outline: none; margin-bottom: 20px; }
-        .search-box::placeholder { color: #fde68a; opacity: 0.85; }
+        .buttons-header h3 { font-size: 20px; font-weight: bold; color: #b91c1c !important; }
+        .badge { background: #fff1f2; color: #dc2626 !important; border: 1px solid #ef4444; padding: 4px 14px; border-radius: 20px; font-size: 12px; font-weight: bold; }
+        .search-box { width: 100%; padding: 12px 16px; background: #ffffff; border: 1px solid #f87171; border-radius: 12px; color: #dc2626 !important; font-size: 14px; outline: none; margin-bottom: 20px; }
+        .search-box::placeholder { color: #f87171; opacity: 0.9; }
         .grid-buttons { display: grid; grid-template-columns: repeat(auto-fill, minmax(145px, 1fr)); gap: 8px; max-height: 380px; overflow-y: auto; padding-right: 5px; }
-        .btn-item { background: rgba(255, 255, 255, 0.11); border: 1px solid rgba(254, 202, 202, 0.22); color: #ffedd5; padding: 8px 10px; border-radius: 8px; font-size: 11px; text-decoration: none; text-align: center; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-        .btn-item:hover { background: #dc2626; border-color: #fcd34d; color: #fffbeb; transform: translateY(-2px); }
+        .btn-item { background: #ffffff; border: 1px solid #fca5a5; color: #dc2626 !important; padding: 8px 10px; border-radius: 8px; font-size: 11px; font-weight: 600; text-decoration: none; text-align: center; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .btn-item:hover { background: #fee2e2; border-color: #dc2626; color: #991b1b !important; transform: translateY(-2px); }
     </style>
 </head>
-<body class="antialiased text-red-900">
-    <!-- 顶端中国红暖心通知栏 -->
-    <div class="china-red-gradient text-amber-50 text-xs py-2.5 px-4 border-b border-amber-300/30 relative z-50">
+<body class="antialiased text-red-600">
+    <!-- 顶端中国红暖心通知栏（全红字） -->
+    <div class="china-red-banner text-red-700 text-xs py-2.5 px-4 border-b border-red-300 relative z-50">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
             <div class="flex items-center space-x-2 text-center sm:text-left">
-                <span class="gold-pill font-extrabold px-2.5 py-0.5 rounded-full text-[10px] tracking-wide">❤️ 康养5天4夜</span>
-                <span class="text-amber-50">🏮 <strong>到位陪护 · 幸福康养</strong>：全国360+地级市及全球城市老人陪护 5天4夜 暖心预约中！</span>
+                <span class="red-pill font-extrabold px-2.5 py-0.5 rounded-full text-[10px] tracking-wide bg-white">❤️ 康养5天4夜</span>
+                <span class="text-red-700">🏮 <strong class="text-red-600">到位陪护 · 幸福康养</strong>：全国360+地级市及全球城市老人陪护 5天4夜 暖心预约中！</span>
             </div>
-            <div class="flex items-center space-x-4 text-[11px] text-amber-50">
-                <span class="hidden md:inline">🇨🇦 蒙特利尔：<strong class="text-amber-200">+1 (438) 228-7888</strong></span>
-                <span class="hidden lg:inline">🇺🇸 纽约：<strong class="text-amber-200">+1 (917) 621-0118</strong></span>
-                <span>💬 微信客服：<strong class="text-amber-200 font-bold">fundes</strong></span>
+            <div class="flex items-center space-x-4 text-[11px] text-red-700">
+                <span class="hidden md:inline">🇨🇦 蒙特利尔：<strong class="text-red-600">+1 (438) 228-7888</strong></span>
+                <span class="hidden lg:inline">🇺🇸 纽约：<strong class="text-red-600">+1 (917) 621-0118</strong></span>
+                <span>💬 微信客服：<strong class="text-red-600 font-bold">fundes</strong></span>
             </div>
         </div>
     </div>
@@ -73,63 +78,62 @@
     <header class="sticky top-0 z-40 glass-header shadow-sm">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-3 cursor-pointer" onclick="goToHome()">
-                <div class="china-red-gradient text-amber-50 px-3.5 py-2.5 rounded-2xl shadow-md font-black border border-amber-300/40 tracking-wider">
+                <div class="bg-red-100 text-red-600 px-3.5 py-2.5 rounded-2xl shadow-sm font-black border-2 border-red-500 tracking-wider">
                     到位陪護
                 </div>
                 <div>
-                    <span id="nav-brand-title" class="text-xl sm:text-2xl font-black tracking-tight text-red-700">中国全国 5天4夜康养陪护</span>
-                    <span class="block text-xs font-medium text-red-700/80">全国360+地级市及全球城市老人陪护 5天4夜服务大全</span>
+                    <span id="nav-brand-title" class="text-xl sm:text-2xl font-black tracking-tight text-red-600">中国全国 5天4夜康养陪护</span>
+                    <span class="block text-xs font-semibold text-red-500">全国360+地级市及全球城市老人陪护 5天4夜服务大全</span>
                 </div>
             </div>
 
             <!-- 地区/国家与城市联动下拉框 -->
             <div class="flex items-center space-x-2">
-                <span class="text-xs text-red-800 font-semibold hidden md:inline">服务地区/国家:</span>
-                <select id="global-city-switcher" onchange="switchCity(this.value)" class="bg-red-50 border border-red-200 text-red-800 text-xs font-bold px-3 py-2 rounded-xl outline-none cursor-pointer shadow-sm">
+                <span class="text-xs text-red-600 font-bold hidden md:inline">服务地区/国家:</span>
+                <select id="global-city-switcher" onchange="switchCity(this.value)" class="bg-red-50 border border-red-300 text-red-600 text-xs font-bold px-3 py-2 rounded-xl outline-none cursor-pointer shadow-sm">
                     <option value="china">🇨🇳 中国全国全城市 (China)</option>
                 </select>
 
-                <select id="sub-city-switcher" onchange="switchSubCity(this.value)" class="bg-amber-50 border border-amber-200 text-amber-900 text-xs font-bold px-3 py-2 rounded-xl outline-none cursor-pointer shadow-sm hidden sm:block max-w-[180px]">
+                <select id="sub-city-switcher" onchange="switchSubCity(this.value)" class="bg-red-50 border border-red-300 text-red-600 text-xs font-bold px-3 py-2 rounded-xl outline-none cursor-pointer shadow-sm hidden sm:block max-w-[180px]">
                     <option value="ALL">本区所有城市与站点</option>
                 </select>
             </div>
 
             <div class="hidden lg:flex items-center space-x-4">
-                <span id="header-country-tag" class="text-xs gold-pill px-3.5 py-1.5 rounded-full font-bold shadow-xs">🇨🇳 中国360+全境城市 5天4夜陪护</span>
+                <span id="header-country-tag" class="text-xs red-pill bg-white px-3.5 py-1.5 rounded-full font-bold shadow-xs">🇨🇳 中国360+全境城市 5天4夜陪护</span>
             </div>
         </div>
     </header>
 
     <!-- Dynamic Content Area -->
     <div id="app-container">
-        <!-- Hero Section: 中国红 + 阳光康养健康主题 -->
-        <section id="hero-section" class="relative china-red-warm-hero text-amber-50 py-20 overflow-hidden">
-            <div class="absolute inset-0 opacity-30 mix-blend-luminosity">
+        <!-- Hero Section: 中国红 + 全红字体主题 -->
+        <section id="hero-section" class="relative china-red-warm-hero text-red-600 py-20 overflow-hidden border-b border-red-200">
+            <div class="absolute inset-0 opacity-15">
                 <img id="hero-bg-img" src="https://images.pexels.com/photos/7551667/pexels-photo-7551667.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" alt="中国红康养老人陪护 5天4夜" class="w-full h-full object-cover transition-all duration-1000">
             </div>
-            <div class="absolute inset-0 bg-gradient-to-r from-red-900/85 via-red-700/75 to-amber-800/70"></div>
             <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <span id="hero-badge" class="inline-block gold-pill text-xs font-extrabold px-4 py-1.5 rounded-full tracking-widest mb-4 shadow-lg">🏮 中国红暖心康养 · 全国360+地级市及海外全城 5天4夜陪护</span>
-                <h1 id="hero-title" class="text-3xl sm:text-5xl font-black tracking-tight mb-4 drop-shadow-md text-amber-50">全国所有城市及全球老人陪护 5天4夜暖心康养服务</h1>
-                <p id="hero-desc" class="max-w-2xl mx-auto text-base sm:text-lg text-amber-100 mb-8 font-normal leading-relaxed">传递家一般的温暖与安心。完整覆盖中国直辖市、省会、全部地级市、自治州、盟及港澳台与海外主要城市，提供 5天4夜 居家陪伴、就医陪诊、术后康复与慢节奏康养照护。</p>
+                <span id="hero-badge" class="inline-block bg-white border-2 border-red-500 text-red-600 text-xs font-extrabold px-4 py-1.5 rounded-full tracking-widest mb-4 shadow-sm">🏮 中国红暖心康养 · 全国360+地级市及海外全城 5天4夜陪护</span>
+                <h1 id="hero-title" class="text-3xl sm:text-5xl font-black tracking-tight mb-4 text-red-600">全国所有城市及全球老人陪护 5天4夜暖心康养服务</h1>
+                <p id="hero-desc" class="max-w-2xl mx-auto text-base sm:text-lg text-red-700 mb-8 font-medium leading-relaxed">传递家一般的温暖与安心。完整覆盖中国直辖市、省会、全部地级市、自治州、盟及港澳台与海外主要城市，提供 5天4夜 居家陪伴、就医陪诊、术后康复与慢节奏康养照护。</p>
 
-                <!-- 康养四大健康承诺徽章 -->
+                <!-- 康养四大健康承诺徽章（全红字） -->
                 <div class="flex flex-wrap justify-center gap-3 mb-8 text-xs font-bold">
-                    <span class="bg-white/15 backdrop-blur-md border border-amber-200/35 px-3.5 py-1.5 rounded-full text-amber-100">🌿 适老清淡膳食照料</span>
-                    <span class="bg-white/15 backdrop-blur-md border border-amber-200/35 px-3.5 py-1.5 rounded-full text-amber-100">🩺 三甲医院就医陪诊</span>
-                    <span class="bg-white/15 backdrop-blur-md border border-amber-200/35 px-3.5 py-1.5 rounded-full text-amber-100">📱 每日血压起居同步子女</span>
-                    <span class="bg-white/15 backdrop-blur-md border border-amber-200/35 px-3.5 py-1.5 rounded-full text-amber-100">🛡️ 5天4夜规范安全守护</span>
+                    <span class="bg-white/90 border border-red-300 px-3.5 py-1.5 rounded-full text-red-600 shadow-xs">🌿 适老清淡膳食照料</span>
+                    <span class="bg-white/90 border border-red-300 px-3.5 py-1.5 rounded-full text-red-600 shadow-xs">🩺 三甲医院就医陪诊</span>
+                    <span class="bg-white/90 border border-red-300 px-3.5 py-1.5 rounded-full text-red-600 shadow-xs">📱 每日血压起居同步子女</span>
+                    <span class="bg-white/90 border border-red-300 px-3.5 py-1.5 rounded-full text-red-600 shadow-xs">🛡️ 5天4夜规范安全守护</span>
                 </div>
 
                 <!-- Search Bar -->
-                <div class="max-w-4xl mx-auto bg-white p-3 rounded-2xl shadow-2xl border-2 border-amber-300/60 flex flex-col md:flex-row gap-3 text-red-900">
-                    <div class="flex-1 flex items-center px-4 py-3 bg-red-50/70 rounded-xl border border-red-100">
+                <div class="max-w-4xl mx-auto bg-white p-3 rounded-2xl shadow-xl border-2 border-red-400 flex flex-col md:flex-row gap-3 text-red-600">
+                    <div class="flex-1 flex items-center px-4 py-3 bg-red-50/80 rounded-xl border border-red-200">
                         <span class="text-red-600 mr-3 font-bold">📍</span>
-                        <span id="search-city-label" class="text-sm font-bold text-red-900">当前地区：中国全国 · 全境城市</span>
+                        <span id="search-city-label" class="text-sm font-bold text-red-600">当前地区：中国全国 · 全境城市</span>
                     </div>
-                    <div class="flex-1 flex items-center px-4 py-3 bg-amber-50/70 rounded-xl border border-amber-100">
+                    <div class="flex-1 flex items-center px-4 py-3 bg-red-50/80 rounded-xl border border-red-200">
                         <span class="text-red-600 mr-3 font-bold">🩺</span>
-                        <select id="filter-type" onchange="filterProperties()" class="w-full bg-transparent outline-none text-sm font-semibold text-red-900 cursor-pointer">
+                        <select id="filter-type" onchange="filterProperties()" class="w-full bg-transparent outline-none text-sm font-bold text-red-600 cursor-pointer">
                             <option value="">所有 5天4夜 老人陪护类型（全部康养方案）</option>
                             <option value="5天4夜 居家生活与日常起居陪护">5天4夜 居家生活与日常起居陪护</option>
                             <option value="5天4夜 医院陪诊与术后康复照护">5天4夜 医院陪诊与术后康复照护</option>
@@ -137,7 +141,7 @@
                             <option value="5天4夜 慢节奏康养旅居与外出陪伴">5天4夜 慢节奏康养旅居与外出陪伴</option>
                         </select>
                     </div>
-                    <button onclick="filterProperties()" class="china-red-gradient hover:opacity-95 text-amber-50 font-bold px-8 py-3 rounded-xl transition flex items-center justify-center shadow-md cursor-pointer">
+                    <button onclick="filterProperties()" class="bg-red-100 hover:bg-red-200 border-2 border-red-600 text-red-600 font-black px-8 py-3 rounded-xl transition flex items-center justify-center shadow-sm cursor-pointer">
                         🔍 查找 5天4夜 方案
                     </button>
                 </div>
@@ -146,19 +150,19 @@
 
         <!-- 国家/地区与全城市直观点击导航栏 -->
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8">
-            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-red-100 shadow-sm space-y-4">
+            <div class="bg-white rounded-2xl p-5 sm:p-6 border border-red-200 shadow-sm space-y-4">
                 <div>
-                    <div class="text-xs font-extrabold text-red-800 mb-2.5 flex items-center gap-1.5">
+                    <div class="text-xs font-extrabold text-red-600 mb-2.5 flex items-center gap-1.5">
                         <span>🌏</span> <span>国内与海外主要服务国家/地区（点击切换）：</span>
                     </div>
                     <div id="country-buttons-box" class="flex flex-wrap gap-1.5 max-h-28 overflow-y-auto p-1"></div>
                 </div>
-                <div class="border-t border-red-100 pt-4">
+                <div class="border-t border-red-200 pt-4">
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2.5">
-                        <div id="city-buttons-title" class="text-xs font-extrabold text-red-800">🏙️ 当前国家/地区覆盖城市（点击筛选 5天4夜 陪护）：</div>
-                        <input type="text" id="city-quick-filter" oninput="filterCityPills()" placeholder="快速筛选本区城市名（如：沈阳、苏州、大理、三亚、呼伦贝尔...）" class="text-xs px-3.5 py-2 rounded-xl border border-red-200 bg-red-50/40 text-red-900 placeholder-red-400 outline-none focus:border-red-500 w-full sm:w-80">
+                        <div id="city-buttons-title" class="text-xs font-extrabold text-red-600">🏙️ 当前国家/地区覆盖城市（点击筛选 5天4夜 陪护）：</div>
+                        <input type="text" id="city-quick-filter" oninput="filterCityPills()" placeholder="快速筛选本区城市名（如：沈阳、苏州、大理、三亚、呼伦贝尔...）" class="text-xs px-3.5 py-2 rounded-xl border border-red-300 bg-red-50/50 text-red-600 placeholder-red-400 outline-none focus:border-red-600 w-full sm:w-80">
                     </div>
-                    <div id="city-buttons-box" class="flex flex-wrap gap-1.5 max-h-56 overflow-y-auto p-2 border border-red-100/80 rounded-xl bg-amber-50/30"></div>
+                    <div id="city-buttons-box" class="flex flex-wrap gap-1.5 max-h-56 overflow-y-auto p-2 border border-red-200 rounded-xl bg-red-50/30"></div>
                 </div>
             </div>
         </section>
@@ -166,14 +170,14 @@
         <!-- Main Content Area -->
         <main id="main-content-area" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
             <div id="list-view-box">
-                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-2 bg-white p-4 rounded-2xl border border-red-100 shadow-xs">
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-2 bg-white p-4 rounded-2xl border border-red-200 shadow-xs">
                     <div>
-                        <h2 id="section-heading" class="text-xl sm:text-2xl font-black tracking-tight text-red-800">中国全国 老人陪护 5天4夜 康养服务网点</h2>
-                        <p class="text-sm text-red-700/85 mt-0.5">本区已开通 <span id="property-count" class="font-bold text-red-600">3299000</span> 个 5天4夜 陪护服务席位（每页展示200个，共计 <span id="total-pages-label" class="font-bold text-red-600">16495</span> 页）</p>
+                        <h2 id="section-heading" class="text-xl sm:text-2xl font-black tracking-tight text-red-600">中国全国 老人陪护 5天4夜 康养服务网点</h2>
+                        <p class="text-sm text-red-600 mt-0.5">本区已开通 <span id="property-count" class="font-extrabold text-red-700">3299000</span> 个 5天4夜 陪护服务席位（每页展示200个，共计 <span id="total-pages-label" class="font-extrabold text-red-700">16495</span> 页）</p>
                     </div>
                     <div class="flex flex-wrap gap-2 text-xs font-bold">
-                        <span class="bg-red-50 text-red-700 border border-red-200 px-3 py-1.5 rounded-full">❤️ 5天4夜全程陪伴</span>
-                        <span class="bg-emerald-50 text-emerald-700 border border-emerald-200 px-3 py-1.5 rounded-full">🌿 每日健康打卡</span>
+                        <span class="bg-red-50 text-red-600 border border-red-300 px-3 py-1.5 rounded-full">❤️ 5天4夜全程陪伴</span>
+                        <span class="bg-red-50 text-red-600 border border-red-300 px-3 py-1.5 rounded-full">🌿 每日健康打卡</span>
                     </div>
                 </div>
 
@@ -188,56 +192,56 @@
             <div id="detail-view-box" style="display: none;"></div>
         </main>
 
-        <!-- 📞 中国红康养暖心联系专区 -->
+        <!-- 📞 中国红康养暖心联系专区（全红字体） -->
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 my-16">
-            <div class="china-red-warm-hero rounded-3xl p-8 sm:p-12 text-amber-50 shadow-2xl border-2 border-amber-300/40">
+            <div class="china-red-warm-hero rounded-3xl p-8 sm:p-12 text-red-600 shadow-xl border-2 border-red-400">
                 <div class="text-center max-w-3xl mx-auto mb-10">
-                    <span class="gold-pill text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest shadow-md">24/7 Warm Care Support</span>
-                    <h2 class="text-3xl sm:text-4xl font-black mt-3 mb-4 text-amber-50">联系我们与专属康养陪护顾问</h2>
-                    <p class="text-amber-100 text-sm">无论您是为国内父母预约 5天4夜 居家或就医陪护，还是为海外长辈安排跨城照料，我们的顾问团队随时为您提供一对一评估与排班。</p>
+                    <span class="bg-white border border-red-500 text-red-600 text-xs font-extrabold px-4 py-1.5 rounded-full uppercase tracking-widest shadow-xs">24/7 Warm Care Support</span>
+                    <h2 class="text-3xl sm:text-4xl font-black mt-3 mb-4 text-red-600">联系我们与专属康养陪护顾问</h2>
+                    <p class="text-red-700 text-sm font-medium">无论您是为国内父母预约 5天4夜 居家或就医陪护，还是为海外长辈安排跨城照料，我们的顾问团队随时为您提供一对一评估与排班。</p>
                 </div>
 
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center bg-white/10 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-amber-200/25">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center bg-white/90 backdrop-blur-md p-6 sm:p-8 rounded-2xl border border-red-300">
                     <div class="space-y-6 text-center lg:text-left">
                         <div class="flex items-center justify-center lg:justify-start space-x-3">
-                            <div class="w-11 h-11 rounded-xl gold-pill flex items-center justify-center text-xl shadow-lg">💬</div>
+                            <div class="w-11 h-11 rounded-xl bg-red-100 border border-red-400 text-red-600 flex items-center justify-center text-xl shadow-xs">💬</div>
                             <div>
-                                <h3 class="font-bold text-lg text-amber-50">在线客服即时响应</h3>
-                                <p class="text-xs text-amber-200">平均回复时间小于 1 分钟</p>
+                                <h3 class="font-bold text-lg text-red-600">在线客服即时响应</h3>
+                                <p class="text-xs text-red-500 font-semibold">平均回复时间小于 1 分钟</p>
                             </div>
                         </div>
-                        <p class="text-xs text-amber-50/95 leading-relaxed">
+                        <p class="text-xs text-red-700 leading-relaxed">
                             支持随时与值班陪护顾问沟通老人身体状况、作息习惯与 5天4夜 照护清单。提供中英文双语协调，协助安排上门交接与家属每日健康汇报。
                         </p>
                         <div>
-                            <a href="https://www.donlk.com/index888.html" target="_blank" class="inline-flex items-center justify-center gold-pill hover:opacity-95 font-extrabold px-6 py-3 rounded-xl shadow-lg transition transform hover:-translate-y-0.5 text-sm">
+                            <a href="https://www.donlk.com/index888.html" target="_blank" class="inline-flex items-center justify-center bg-red-100 hover:bg-red-200 border-2 border-red-600 text-red-600 font-extrabold px-6 py-3 rounded-xl shadow-sm transition transform hover:-translate-y-0.5 text-sm">
                                 🚀 点击进入在线客服系统
                             </a>
                         </div>
                     </div>
 
-                    <div class="flex flex-col items-center justify-center bg-white/10 p-6 rounded-2xl border border-amber-200/30 text-center">
-                        <div class="bg-white p-3 rounded-xl shadow-md mb-3 border-2 border-amber-300">
+                    <div class="flex flex-col items-center justify-center bg-red-50/70 p-6 rounded-2xl border border-red-300 text-center">
+                        <div class="bg-white p-3 rounded-xl shadow-sm mb-3 border-2 border-red-500">
                             <img src="https://cdn.pixabay.com/photo/2026/10/30/01/32/01-32-28-109_640.jpg" alt="官方微信客服二维码" class="w-36 h-36 object-contain">
                         </div>
-                        <span class="text-xs font-bold gold-pill px-3.5 py-1 rounded-full">📱 微信扫一扫加专属客服</span>
-                        <p class="text-[11px] text-amber-100 mt-2">微信号：<strong class="text-amber-300 text-sm">fundes</strong> (或直接扫码添加)</p>
+                        <span class="text-xs font-bold bg-white border border-red-400 text-red-600 px-3.5 py-1 rounded-full">📱 微信扫一扫加专属客服</span>
+                        <p class="text-[11px] text-red-700 mt-2">微信号：<strong class="text-red-600 text-sm">fundes</strong> (或直接扫码添加)</p>
                     </div>
 
                     <div class="space-y-4 text-center lg:text-left">
                         <div class="flex items-center justify-center lg:justify-start space-x-3">
-                            <div class="w-11 h-11 rounded-xl gold-pill flex items-center justify-center text-xl shadow-lg">☎️</div>
+                            <div class="w-11 h-11 rounded-xl bg-red-100 border border-red-400 text-red-600 flex items-center justify-center text-xl shadow-xs">☎️</div>
                             <div>
-                                <h3 class="font-bold text-lg text-amber-50">全球业务热线</h3>
-                                <p class="text-xs text-amber-200">周一至周日 24小时值班</p>
+                                <h3 class="font-bold text-lg text-red-600">全球业务热线</h3>
+                                <p class="text-xs text-red-500 font-semibold">周一至周日 24小时值班</p>
                             </div>
                         </div>
-                        <div class="bg-red-900/45 p-4 rounded-xl border border-amber-200/20 text-xs space-y-2 text-amber-50">
-                            <div>🇨🇦 <strong>蒙特利尔总线：</strong>+1 (438) 228-7888</div>
-                            <div>🇺🇸 <strong>纽约办事处：</strong>+1 (917) 621-0118</div>
-                            <div>🇨🇦 <strong>温哥华分部：</strong>+1 (778) 383-2208</div>
-                            <div>🇪🇺 <strong>欧洲专属客服：</strong>+372 81524808</div>
-                            <div>💬 <strong>中国微信直联：</strong>fundes</div>
+                        <div class="bg-red-50/80 p-4 rounded-xl border border-red-200 text-xs space-y-2 text-red-700">
+                            <div>🇨🇦 <strong class="text-red-600">蒙特利尔总线：</strong>+1 (438) 228-7888</div>
+                            <div>🇺🇸 <strong class="text-red-600">纽约办事处：</strong>+1 (917) 621-0118</div>
+                            <div>🇨🇦 <strong class="text-red-600">温哥华分部：</strong>+1 (778) 383-2208</div>
+                            <div>🇪🇺 <strong class="text-red-600">欧洲专属客服：</strong>+372 81524808</div>
+                            <div>💬 <strong class="text-red-600">中国微信直联：</strong>fundes</div>
                         </div>
                     </div>
                 </div>
@@ -245,52 +249,52 @@
         </section>
     </div>
 
-    <!-- 底部 3299 个 5天4夜 城市陪护分站导航矩阵 -->
+    <!-- 底部 3299 个 5天4夜 城市陪护分站导航矩阵（全红字） -->
     <div class="buttons-section" id="buttons-area">
         <div class="buttons-container">
             <div class="buttons-header">
                 <h3>🏮 全国360+地级城市及海外城市老人陪护 5天4夜 分站矩阵</h3>
                 <span class="badge">总计: 3299 个独立分站</span>
             </div>
-            <p style="color:#ffedd5; font-size:13px; margin-bottom:15px;">您可以在下方直接搜索编号或任意城市名称（覆盖全国所有地级市、自治州、盟、直辖市及全球主要城市），点击链接查看对应独立分站（1.html ~ 3299.html）：</p>
+            <p style="color:#dc2626; font-size:13px; margin-bottom:15px; font-weight:500;">您可以在下方直接搜索编号或任意城市名称（覆盖全国所有地级市、自治州、盟、直辖市及全球主要城市），点击链接查看对应独立分站（1.html ~ 3299.html）：</p>
             <input type="text" id="btn-search" class="search-box" placeholder="输入编号或城市快速检索（例如：888 或 北京、齐齐哈尔、呼伦贝尔、大理、西双版纳、喀什、三亚、蒙特利尔、纽约、东京）..." oninput="filterButtons()">
             <div class="grid-buttons" id="buttons-grid"></div>
         </div>
     </div>
 
-    <!-- 🌐 照护与交流板块（中国红暖色系，无黑字） -->
-    <div style="background: #5c0f16; border-top: 1px solid #991b1b; padding: 40px 20px; color: #ffedd5; font-size: 13px;">
+    <!-- 🌐 照护与交流板块（全红字） -->
+    <div style="background: #fff1f2; border-top: 1px solid #fca5a5; padding: 40px 20px; color: #dc2626; font-size: 13px;">
         <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px;">
             <div id="content">
-                <h3 style="color: #fffbeb; font-size: 16px; font-weight: bold; margin-bottom: 12px; border-left: 3px solid #f59e0b; padding-left: 8px;">康养陪护交流大厅</h3>
+                <h3 style="color: #b91c1c; font-size: 16px; font-weight: bold; margin-bottom: 12px; border-left: 3px solid #dc2626; padding-left: 8px;">康养陪护交流大厅</h3>
                 <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
-                    <li><a href="fid-115.html" style="color: #ffedd5; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fcd34d'" onmouseout="this.style.color='#ffedd5'">👉 5天4夜陪护经验大厅</a></li>
-                    <li><a href="fid-85.html" style="color: #ffedd5; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fcd34d'" onmouseout="this.style.color='#ffedd5'">👉 护工与陪诊资源供求</a></li>
-                    <li><a href="fid-106.html" style="color: #ffedd5; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fcd34d'" onmouseout="this.style.color='#ffedd5'">👉 跨城接送与康复支持</a></li>
-                    <li><a href="fid-86.html" style="color: #ffedd5; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fcd34d'" onmouseout="this.style.color='#ffedd5'">👉 跨境家属费用与保障</a></li>
+                    <li><a href="fid-115.html" style="color: #dc2626; text-decoration: none; font-weight: 600;">👉 5天4夜陪护经验大厅</a></li>
+                    <li><a href="fid-85.html" style="color: #dc2626; text-decoration: none; font-weight: 600;">👉 护工与陪诊资源供求</a></li>
+                    <li><a href="fid-106.html" style="color: #dc2626; text-decoration: none; font-weight: 600;">👉 跨城接送与康复支持</a></li>
+                    <li><a href="fid-86.html" style="color: #dc2626; text-decoration: none; font-weight: 600;">👉 跨境家属费用与保障</a></li>
                 </ul>
             </div>
 
             <div>
-                <h3 style="color: #fffbeb; font-size: 16px; font-weight: bold; margin-bottom: 12px; border-left: 3px solid #f59e0b; padding-left: 8px;">合作与入驻</h3>
+                <h3 style="color: #b91c1c; font-size: 16px; font-weight: bold; margin-bottom: 12px; border-left: 3px solid #dc2626; padding-left: 8px;">合作与入驻</h3>
                 <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 8px;">
-                    <li><a href="fid-144.html" style="color: #ffedd5; text-decoration: none; transition: color 0.2s;" onmouseover="this.style.color='#fcd34d'" onmouseout="this.style.color='#ffedd5'">👉 康养与陪护机构合作</a></li>
+                    <li><a href="fid-144.html" style="color: #dc2626; text-decoration: none; font-weight: 600;">👉 康养与陪护机构合作</a></li>
                 </ul>
             </div>
 
             <div style="display: flex; flex-direction: column; justify-content: center;">
-                <div id="end" style="background: rgba(255,255,255,0.08); padding: 16px; border-radius: 12px; border: 1px solid rgba(252, 211, 77, 0.3); color: #fffbeb;">
+                <div id="end" style="background: #ffffff; padding: 16px; border-radius: 12px; border: 1px solid #fca5a5; color: #dc2626; font-weight: 600;">
                     查看完整版本:
-                    <a href="../forum.php" target="_blank" style="color: #fcd34d; font-weight: bold; text-decoration: underline; margin-left: 4px;"><strong>康养陪护之家</strong></a>
+                    <a href="../forum.php" target="_blank" style="color: #b91c1c; font-weight: bold; text-decoration: underline; margin-left: 4px;"><strong>康养陪护之家</strong></a>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Footer -->
-    <footer class="bg-red-900 text-amber-100 py-10 text-center text-xs space-y-2 border-t border-red-800">
-        <p id="footer-copy">© 2026 到位陪护 (Daowei Elder Care) 全国全地级市及全球老人陪护 5天4夜康养服务中心. All Rights Reserved.</p>
-        <p id="footer-schools" class="text-amber-200/90">覆盖中国全部直辖市、地级市、自治州、盟、省直辖县级市及港澳台与海外主要城市。</p>
+    <!-- Footer（全红字） -->
+    <footer class="bg-red-100 text-red-700 py-10 text-center text-xs space-y-2 border-t border-red-200 font-medium">
+        <p id="footer-copy" class="text-red-700">© 2026 到位陪护 (Daowei Elder Care) 全国全地级市及全球老人陪护 5天4夜康养服务中心. All Rights Reserved.</p>
+        <p id="footer-schools" class="text-red-600">覆盖中国全部直辖市、地级市、自治州、盟、省直辖县级市及港澳台与海外主要城市。</p>
     </footer>
 
     <!-- JavaScript Engine -->
@@ -468,8 +472,8 @@
                 var isSel = (k === CURRENT_CITY_KEY) ? "selected" : "";
                 selectHtml += '<option value="' + k + '" ' + isSel + '>' + (i + 1) + '. ' + d.name + ' (' + d.cityList.length + '城)</option>';
                 var btnClass = (k === CURRENT_CITY_KEY)
-                    ? "china-red-gradient text-amber-50 border-red-700 shadow-sm"
-                    : "bg-red-50/70 text-red-800 border-red-200 hover:bg-red-100 hover:text-red-700";
+                    ? "bg-red-100 text-red-700 border-2 border-red-600 shadow-xs"
+                    : "bg-red-50/70 text-red-600 border-red-200 hover:bg-red-100 hover:text-red-700";
                 btnsHtml += '<button onclick="switchCity(\'' + k + '\')" class="px-2.5 py-1 rounded-lg text-xs font-bold border transition ' + btnClass + '">' + (i + 1) + '.' + d.cnName + ' (' + d.cityList.length + ')</button>';
             }
             if (switcher) switcher.innerHTML = selectHtml;
@@ -488,15 +492,15 @@
                 cityTitle.innerHTML = '🏙️ ' + currentCityData.cnName + '覆盖全部城市（共 ' + cList.length + ' 城，点击筛选 5天4夜 陪护）：';
             }
             var subHtml = '<option value="ALL" ' + (CURRENT_SUB_CITY === "ALL" ? "selected" : "") + '>' + currentCityData.cnName + '所有城市 (' + cList.length + '城)</option>';
-            var cBtnsHtml = '<button data-city="全部" onclick="switchSubCity(\'ALL\')" class="city-pill-btn px-3 py-1 rounded-full text-xs font-bold transition ' + (CURRENT_SUB_CITY === "ALL" ? "china-red-gradient text-amber-50 shadow-sm" : "bg-white border border-red-200 text-red-800 hover:bg-red-50") + '">全部 (' + cList.length + '城)</button>';
+            var cBtnsHtml = '<button data-city="全部" onclick="switchSubCity(\'ALL\')" class="city-pill-btn px-3 py-1 rounded-full text-xs font-bold transition ' + (CURRENT_SUB_CITY === "ALL" ? "bg-red-100 border-2 border-red-600 text-red-700 shadow-xs" : "bg-white border border-red-200 text-red-600 hover:bg-red-50") + '">全部 (' + cList.length + '城)</button>';
 
             for (var i = 0; i < cList.length; i++) {
                 var cName = cList[i];
                 var sel = (CURRENT_SUB_CITY === cName) ? "selected" : "";
                 subHtml += '<option value="' + cName + '" ' + sel + '>' + (i + 1) + '. ' + cName + '</option>';
                 var activeCls = (CURRENT_SUB_CITY === cName)
-                    ? "china-red-gradient text-amber-50 shadow-sm"
-                    : "bg-white border border-red-100 text-red-800 hover:bg-red-50 hover:text-red-700 hover:border-red-200";
+                    ? "bg-red-100 border-2 border-red-600 text-red-700 shadow-xs font-bold"
+                    : "bg-white border border-red-200 text-red-600 hover:bg-red-50 hover:text-red-700";
                 cBtnsHtml += '<button data-city="' + cName + '" onclick="switchSubCity(\'' + cName + '\')" class="city-pill-btn px-2.5 py-1 rounded-full text-xs font-semibold transition ' + activeCls + '">' + cName + '</button>';
             }
             if (subSwitcher) subSwitcher.innerHTML = subHtml;
@@ -594,4 +598,249 @@
             var html = "";
             for (var i = 0; i < list.length; i++) {
                 var p = list[i];
-                html += '<div onclick="openLowLevelPage('
+                html += '<div onclick="openLowLevelPage(' + p.id + ')" class="bg-white rounded-2xl overflow-hidden border border-red-200 shadow-xs hover:shadow-xl hover:border-red-400 transition-all duration-300 cursor-pointer group flex flex-col">' +
+                    '<div class="relative h-52 overflow-hidden bg-red-50">' +
+                        '<img src="' + p.image + '" alt="' + p.title + '" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">' +
+                        '<span class="absolute top-3 left-3 bg-white/95 backdrop-blur-md text-red-600 text-xs font-bold px-2.5 py-1 rounded-full shadow border border-red-200">📍 ' + p.city + '</span>' +
+                        '<span class="absolute top-3 right-3 bg-red-50 border border-red-400 text-red-600 text-xs font-extrabold px-2.5 py-1 rounded-full shadow">★ ' + p.rating + '</span>' +
+                        '<span class="absolute bottom-2 left-2 bg-white/95 text-red-600 text-[11px] font-bold px-2.5 py-1 rounded-lg border border-red-300">❤️ ' + p.originPort + '</span>' +
+                    '</div>' +
+                    '<div class="p-5 flex-1 flex flex-col justify-between">' +
+                        '<div>' +
+                            '<div class="text-xs font-extrabold text-red-500 mb-1">' + p.type + '</div>' +
+                            '<h3 class="font-bold text-red-700 line-clamp-2 mb-2 group-hover:text-red-600 transition text-sm">' + p.title + '</h3>' +
+                            '<p class="text-xs text-red-600 bg-red-50/70 p-2.5 rounded-xl border border-red-100 line-clamp-3 mb-4">' + p.cargoInfo + '</p>' +
+                        '</div>' +
+                        '<div class="flex items-center justify-between pt-3 border-t border-red-100">' +
+                            '<div>' +
+                                '<span class="text-lg font-black text-red-600">¥' + p.price + '</span>' +
+                                '<span class="text-xs text-red-500"> / 5天4夜起</span>' +
+                            '</div>' +
+                            '<span class="text-xs text-red-600 bg-red-50 border border-red-200 px-2 py-0.5 rounded-full font-semibold">✓ 健康打卡</span>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+            }
+            grid.innerHTML = html;
+        }
+
+        function openLowLevelPage(id) {
+            var p = window.getPropertyByIndex(id - 1);
+            if (!p) return;
+
+            document.getElementById('hero-section').style.display = 'none';
+            document.getElementById('list-view-box').style.display = 'none';
+            var detailBox = document.getElementById('detail-view-box');
+            detailBox.style.display = 'block';
+
+            detailBox.innerHTML = '<div class="mb-6">' +
+                    '<button onclick="goToHome()" class="inline-flex items-center text-xs font-bold bg-white border border-red-300 px-4 py-2.5 rounded-xl text-red-600 hover:bg-red-50 shadow-xs transition cursor-pointer">' +
+                        '← 返回 ' + currentCityData.cnName + ' 5天4夜陪护列表' +
+                    '</button>' +
+                '</div>' +
+                '<div class="bg-white rounded-3xl p-6 sm:p-10 border border-red-200 shadow-xl grid grid-cols-1 lg:grid-cols-2 gap-10">' +
+                    '<div class="space-y-4">' +
+                        '<div class="relative h-80 sm:h-96 rounded-2xl overflow-hidden shadow-md border border-red-200">' +
+                            '<img src="' + p.image + '" alt="' + p.title + '" class="w-full h-full object-cover">' +
+                            '<span class="absolute top-4 left-4 bg-white/95 border border-red-400 text-red-600 text-xs font-bold px-3.5 py-1.5 rounded-full shadow">★ ' + p.rating + ' / 5.0 5天4夜康养严选</span>' +
+                        '</div>' +
+                        '<div class="grid grid-cols-3 gap-3 text-center">' +
+                            '<div class="bg-red-50 p-3 rounded-xl border border-red-200 text-red-600">❤️<div class="text-xs font-bold mt-1">5天4夜暖心陪护</div></div>' +
+                            '<div class="bg-red-50 p-3 rounded-xl border border-red-200 text-red-600">🌿<div class="text-xs font-bold mt-1">每日健康同步</div></div>' +
+                            '<div class="bg-red-50 p-3 rounded-xl border border-red-200 text-red-600">🩺<div class="text-xs font-bold mt-1">适老化照护清单</div></div>' +
+                        '</div>' +
+                    '</div>' +
+                    '<div class="flex flex-col justify-between space-y-6">' +
+                        '<div>' +
+                            '<span class="inline-block bg-red-50 border border-red-300 text-red-600 text-xs font-extrabold px-3.5 py-1 rounded-full mb-2">' + p.city + ' · ' + p.originPort + '</span>' +
+                            '<h1 class="text-2xl sm:text-3xl font-black text-red-600 mb-4">' + p.title + '</h1>' +
+                            '<p class="text-red-700 text-sm leading-relaxed mb-4">' + p.description + '</p>' +
+                            '<div class="bg-red-50/50 border border-red-200 p-4 rounded-2xl mb-4 text-xs space-y-2 text-red-700">' +
+                                '<div><strong class="text-red-600">陪护周期：</strong>5天4夜（支持按需衔接下一周期）</div>' +
+                                '<div><strong class="text-red-600">服务类别：</strong>' + p.type + '</div>' +
+                                '<div><strong class="text-red-600">班型模式：</strong>' + p.originPort + '</div>' +
+                                '<div><strong class="text-red-600">服务城市：</strong>' + p.city + '（居家、医院或康养场景）</div>' +
+                                '<div><strong class="text-red-600">照护重点：</strong>' + p.cargoInfo + '</div>' +
+                            '</div>' +
+                            '<div class="bg-red-50 border border-red-300 p-4 rounded-2xl mb-6">' +
+                                '<h4 class="text-xs font-bold text-red-600 uppercase tracking-wide mb-1">🏮 ' + p.city + ' 5天4夜 康养陪护流程说明</h4>' +
+                                '<p class="text-xs text-red-700 leading-relaxed">涵盖第1天健康习惯评估与交接、第2至第4天日常起居/就医/康养陪伴与用药提醒、第5天总结交接及全程家属沟通。如遇突发不适，按约定流程及时联系家属与医疗机构（紧急情况请优先拨打当地急救电话）。</p>' +
+                            '</div>' +
+                        '</div>' +
+                        '<div class="border-t border-red-200 pt-6 flex items-center justify-between">' +
+                            '<div>' +
+                                '<span class="text-3xl font-black text-red-600">¥' + p.price + '</span>' +
+                                '<span class="text-xs text-red-500"> / 5天4夜参考报价</span>' +
+                            '</div>' +
+                            '<button onclick="window.open(\'https://www.donlk.com/index888.html\', \'_blank\')" class="bg-red-100 hover:bg-red-200 border-2 border-red-600 text-red-600 font-extrabold px-8 py-4 rounded-2xl shadow-md transition flex items-center text-sm cursor-pointer">' +
+                                '📞 预约 ' + p.city + ' 5天4夜陪护' +
+                            '</button>' +
+                        '</div>' +
+                    '</div>' +
+                '</div>';
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function goToHome() {
+            document.getElementById('detail-view-box').style.display = 'none';
+            document.getElementById('hero-section').style.display = 'block';
+            document.getElementById('list-view-box').style.display = 'block';
+        }
+
+        function renderPaginationControls(totalPages) {
+            var container = document.getElementById('pagination-container');
+            if (!container) return;
+            if (totalPages <= 1) { container.innerHTML = ''; return; }
+
+            var html = '<button onclick="changePage(' + (currentPage - 1) + ')" ' + (currentPage === 1 ? 'disabled class="opacity-40 cursor-not-allowed px-3 py-1.5 bg-white border border-red-300 text-red-600 rounded-lg text-xs font-medium"' : 'class="px-3 py-1.5 bg-white border border-red-300 text-red-600 rounded-lg text-xs font-medium hover:bg-red-50 cursor-pointer"') + '>上一页</button>';
+
+            var startPage = Math.max(1, currentPage - 3);
+            var endPage = Math.min(totalPages, startPage + 6);
+            if (endPage - startPage < 6) {
+                startPage = Math.max(1, endPage - 6);
+            }
+
+            if (startPage > 1) {
+                html += '<button onclick="goToPage(1)" class="px-3 py-1.5 bg-white border border-red-300 text-red-600 rounded-lg text-xs font-medium hover:bg-red-50 cursor-pointer">1</button>';
+                if (startPage > 2) html += '<span class="px-2 text-red-500">...</span>';
+            }
+
+            for (var i = startPage; i <= endPage; i++) {
+                var btnCls = (currentPage === i) ? 'bg-red-100 border-2 border-red-600 text-red-700 shadow-xs' : 'bg-white border border-red-300 text-red-600 hover:bg-red-50';
+                html += '<button onclick="goToPage(' + i + ')" class="px-3 py-1.5 rounded-lg text-xs font-bold cursor-pointer ' + btnCls + '">' + i + '</button>';
+            }
+
+            if (endPage < totalPages) {
+                if (endPage < totalPages - 1) html += '<span class="px-2 text-red-500">...</span>';
+                html += '<button onclick="goToPage(' + totalPages + ')" class="px-3 py-1.5 bg-white border border-red-300 text-red-600 rounded-lg text-xs font-medium hover:bg-red-50 cursor-pointer">' + totalPages + '</button>';
+            }
+
+            html += '<button onclick="changePage(' + (currentPage + 1) + ')" ' + (currentPage === totalPages ? 'disabled class="opacity-40 cursor-not-allowed px-3 py-1.5 bg-white border border-red-300 text-red-600 rounded-lg text-xs font-medium"' : 'class="px-3 py-1.5 bg-white border border-red-300 text-red-600 rounded-lg text-xs font-medium hover:bg-red-50 cursor-pointer"') + '>下一页</button>';
+            container.innerHTML = html;
+        }
+
+        function changePage(page) {
+            var totalPages = Math.ceil(window.getTotalCount() / pageSize);
+            if (page < 1 || page > totalPages) return;
+            currentPage = page;
+            renderPaginatedProperties();
+            window.scrollTo({ top: 500, behavior: 'smooth' });
+        }
+
+        function goToPage(page) {
+            currentPage = page;
+            renderPaginatedProperties();
+            window.scrollTo({ top: 500, behavior: 'smooth' });
+        }
+
+        function filterProperties() {
+            currentPage = 1;
+            renderPaginatedProperties();
+        }
+
+        function renderButtons() {
+            var grid = document.getElementById('buttons-grid');
+            if (!grid) return;
+            var allCities = [];
+            for (var k in cityDatabase) {
+                var cObj = cityDatabase[k];
+                for (var j = 0; j < cObj.cityList.length; j++) {
+                    allCities.push(cObj.cityList[j]);
+                }
+            }
+            var html = '';
+            for (var i = 1; i <= 3299; i++) {
+                var cityTag = allCities[(i - 1) % allCities.length];
+                html += '<a href="' + i + '.html" class="btn-item" target="_blank" title="' + cityTag + ' 老人陪护 5天4夜分站 ' + i + '">' + i + '.' + cityTag + '5天4夜</a>';
+            }
+            grid.innerHTML = html;
+        }
+
+        function filterButtons() {
+            var keyword = document.getElementById('btn-search').value.toLowerCase().trim();
+            var buttons = document.getElementById('buttons-grid').getElementsByClassName('btn-item');
+            for (var i = 0; i < buttons.length; i++) {
+                var text = buttons[i].textContent.toLowerCase();
+                var titleAttr = (buttons[i].getAttribute('title') || '').toLowerCase();
+                if (text.indexOf(keyword) !== -1 || titleAttr.indexOf(keyword) !== -1) {
+                    buttons[i].style.display = 'flex';
+                } else {
+                    buttons[i].style.display = 'none';
+                }
+            }
+        }
+
+        window.onload = initWebsite;
+        initWebsite();
+    </script>
+</body>
+</html>
+
+<!-- 🚨 全红字体版：到位陪护 / 到位国际 中央小窗口弹窗 🚨 -->
+<div id="dw_absolute_small_popup" style="display: none; position: fixed !important; top: 0 !important; left: 0 !important; width: 100% !important; height: 100% !important; z-index: 9999999 !important; background: rgba(254, 202, 202, 0.72) !important; backdrop-filter: blur(8px) !important; -webkit-backdrop-filter: blur(8px) !important; align-items: center !important; justify-content: center !important; padding: 16px !important; box-sizing: border-box !important;">
+    <div id="dw_small_box_body" style="position: relative !important; width: 100% !important; max-width: 480px !important; background: linear-gradient(135deg, #fff5f5 0%, #ffe4e6 100%) !important; border: 2px solid #ef4444 !important; border-radius: 24px !important; padding: 32px 24px !important; color: #dc2626 !important; box-shadow: 0 25px 50px -12px rgba(220, 38, 38, 0.35) !important; box-sizing: border-box !important; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important; transform: scale(0.9); opacity: 0; transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.2s ease-out !important;">
+
+        <button onclick="document.body.style.setProperty('overflow','auto','important'); this.closest('#dw_absolute_small_popup').remove();" style="position: absolute !important; top: 18px !important; right: 18px !important; width: 32px !important; height: 32px !important; border-radius: 50% !important; background: #ffffff !important; border: 1px solid #ef4444 !important; color: #dc2626 !important; font-size: 15px !important; cursor: pointer !important; display: flex !important; align-items: center !important; justify-content: center !important; font-weight: bold !important; z-index: 10000000 !important; padding: 0 !important; line-height: 1 !important; transition: all 0.2s !important;" onmouseover="this.style.background='#fee2e2';this.style.color='#b91c1c';" onmouseout="this.style.background='#ffffff';this.style.color='#dc2626';">✕</button>
+
+        <div style="text-align: center !important; margin-bottom: 22px !important;">
+            <span style="background: #ffffff !important; border: 1px solid #ef4444 !important; color: #dc2626 !important; font-size: 10px !important; font-weight: 800 !important; padding: 4px 14px !important; border-radius: 50px !important; letter-spacing: 1.2px !important; display: inline-block !important;">🏮 24/7 康养陪护顾问</span>
+            <h2 style="font-size: 20px !important; font-weight: 800 !important; margin: 12px 0 6px 0 !important; color: #dc2626 !important; letter-spacing: -0.02em !important; line-height: 1.3 !important;">联系我们与专属康养陪护顾问</h2>
+            <p style="color: #b91c1c !important; font-size: 12px !important; margin: 0 !important; line-height: 1.5 !important;">到位陪护 / 到位国际 全国360+地级市及全球老人陪护 5天4夜暖心排班。</p>
+        </div>
+
+        <div style="display: flex !important; flex-direction: column !important; gap: 14px !important;">
+            <div style="display: flex !important; align-items: center !important; background: #ffffff !important; padding: 12px 14px !important; border-radius: 14px !important; border: 1px solid #fca5a5 !important; box-sizing: border-box !important;">
+                <div style="background: #ffffff !important; padding: 5px !important; border-radius: 10px !important; margin-right: 14px !important; flex-shrink: 0 !important; display: inline-block !important; border: 2px solid #ef4444 !important;">
+                    <img src="https://cdn.pixabay.com/photo/2026/10/30/01/32/01-32-28-109_640.jpg" alt="官方微信客服二维码" style="width: 64px !important; height: 64px !important; display: block !important; object-fit: contain !important; border: none !important;">
+                </div>
+                <div style="text-align: left !important;">
+                    <span style="font-size: 11px !important; font-weight: bold !important; color: #dc2626 !important;">📱 微信扫码直接直联客服</span>
+                    <p style="font-size: 12px !important; color: #b91c1c !important; margin: 4px 0 0 0 !important; font-weight: 600 !important;">微信号：<span style="color: #dc2626 !important; font-size: 15px !important; font-weight: 800 !important;">fundes</span></p>
+                </div>
+            </div>
+
+            <div style="background: #ffffff !important; padding: 12px 14px !important; border-radius: 14px !important; border: 1px solid #fca5a5 !important; font-size: 11px !important; line-height: 1.7 !important; text-align: left !important; box-sizing: border-box !important;">
+                <div style="color: #dc2626 !important; font-weight: 800 !important; margin-bottom: 4px !important; display: flex !important; align-items: center !important;">
+                    <span style="margin-right: 6px !important; font-size: 13px !important;">☎️</span> 全球业务热线 (24小时值班)
+                </div>
+                <div style="color: #b91c1c !important;">
+                    <div>🇨🇦 <strong style="color: #dc2626 !important;">蒙特利尔总线：</strong>+1 (438) 228-7888</div>
+                    <div>🇺🇸 <strong style="color: #dc2626 !important;">纽约业务热线：</strong>+1 (917) 621-0118</div>
+                    <div>🇨🇦 <strong style="color: #dc2626 !important;">温哥华分部：</strong>+1 (778) 383-2208</div>
+                    <div>🇪🇺 <strong style="color: #dc2626 !important;">欧洲专属客服：</strong>+372 81524808</div>
+                </div>
+            </div>
+
+            <a href="https://tawk.to/chat/61d24aa080b2296cfdd4bcf7/1foen70rk" target="_blank" style="display: block !important; text-align: center !important; background: #fee2e2 !important; border: 2px solid #dc2626 !important; color: #dc2626 !important; font-weight: 800 !important; padding: 12px 20px !important; border-radius: 12px !important; text-decoration: none !important; font-size: 13px !important; transition: all 0.2s !important;">🚀 点击进入在线客服系统（即时响应）</a>
+        </div>
+
+        <div style="text-align: center !important; margin-top: 14px !important;">
+            <button onclick="document.body.style.setProperty('overflow','auto','important'); this.closest('#dw_absolute_small_popup').remove();" style="background: none !important; border: none !important; color: #dc2626 !important; text-decoration: underline !important; font-size: 11px !important; font-weight: 600 !important; cursor: pointer !important; padding: 4px !important;">暂不需要，先浏览网页</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        function dw_launch_popup() {
+            var mask = document.getElementById("dw_absolute_small_popup");
+            var body = document.getElementById("dw_small_box_body");
+            if (mask && body) {
+                mask.style.setProperty('display','flex','important');
+                setTimeout(function() {
+                    body.style.transform = "scale(1)";
+                    body.style.opacity = "1";
+                }, 50);
+                document.body.style.setProperty('overflow','hidden','important');
+            }
+        }
+        setTimeout(function() {
+            if (document.readyState === "loading") {
+                document.addEventListener("DOMContentLoaded", dw_launch_popup);
+            } else {
+                dw_launch_popup();
+            }
+        }, 600);
+    })();
+</script>
